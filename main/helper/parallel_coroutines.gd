@@ -1,5 +1,6 @@
-class_name ParallelCoroutines
+class_name ParallelCoroutine
 extends Object
+# Allows for multiple coroutines to be awaited without race conditions
 # https://godotengine.org/qa/147012/join-multiple-coroutines-await-waits-only-single-coroutine
 
 signal completed

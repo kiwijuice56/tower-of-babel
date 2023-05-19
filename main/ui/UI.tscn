@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://bf48p1ixnv8m7"]
 
-[ext_resource type="Theme" uid="uid://cq440c6o2tj70" path="res://main/ui/theme/panel/main_theme.tres" id="1_eo7np"]
-[ext_resource type="PackedScene" uid="uid://cvo0okg0g5y0v" path="res://main/ui/fighter_container/FighterContainer.tscn" id="2_mf62m"]
-[ext_resource type="PackedScene" uid="uid://blft2r1mbgvm2" path="res://main/ui/press_turn_container/PressTurnContainer.tscn" id="2_stfuq"]
-[ext_resource type="StyleBox" uid="uid://c7jle7kbvqcaj" path="res://main/ui/theme/panel/action_panel.tres" id="3_3bpwe"]
-[ext_resource type="Texture2D" uid="uid://x7wjvyna12ml" path="res://main/ui/theme/panel/triangle_corner.png" id="3_j1hwn"]
-[ext_resource type="StyleBox" uid="uid://hjrysi67kpog" path="res://main/ui/theme/panel/background.tres" id="4_ni86x"]
+[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_eo7np"]
+[ext_resource type="PackedScene" uid="uid://cqp7mormwkfmh" path="res://main/ui/fighter_panel/FighterPanel.tscn" id="2_mf62m"]
+[ext_resource type="PackedScene" uid="uid://bolnnaj2ao7r3" path="res://main/ui/turn_icon_panel/TurnIconPanel.tscn" id="2_stfuq"]
+[ext_resource type="PackedScene" uid="uid://b7gg6r0naj5rr" path="res://main/ui/action_panel/ActionPanel.tscn" id="3_xs0ci"]
+[ext_resource type="PackedScene" uid="uid://3042685y44v4" path="res://main/ui/text_box/TextBox.tscn" id="4_ltp7j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ap6a"]
+content_margin_top = 2.0
+content_margin_bottom = 16.0
+bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -26,126 +30,55 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="PressTurnContainer" parent="VBoxContainer" instance=ExtResource("2_stfuq")]
+[node name="PressTurnPanelHolder" type="Control" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="PressTurnPanel" parent="VBoxContainer/PressTurnPanelHolder" instance=ExtResource("2_stfuq")]
+layout_mode = 2
+offset_left = 143.0
+offset_right = 283.0
+offset_bottom = 20.0
 
 [node name="BottomAligner" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="ActionContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="ActionPanelHolder" type="Control" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/separation = 0
 
-[node name="LeftPadding" type="TextureRect" parent="VBoxContainer/ActionContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("3_j1hwn")
-stretch_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ActionContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-theme_override_styles/panel = ExtResource("3_3bpwe")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ActionContainer/PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-theme_override_constants/separation = 2
-
-[node name="Attack" type="Button" parent="VBoxContainer/ActionContainer/PanelContainer/HBoxContainer"]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 0)
-layout_mode = 2
-text = "Attack"
-
-[node name="Skill" type="Button" parent="VBoxContainer/ActionContainer/PanelContainer/HBoxContainer"]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 0)
-layout_mode = 2
-text = "Skill"
-
-[node name="Item" type="Button" parent="VBoxContainer/ActionContainer/PanelContainer/HBoxContainer"]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 0)
-layout_mode = 2
-text = "Item"
-
-[node name="Talk" type="Button" parent="VBoxContainer/ActionContainer/PanelContainer/HBoxContainer"]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 0)
-layout_mode = 2
-text = "Talk"
-
-[node name="Flee" type="Button" parent="VBoxContainer/ActionContainer/PanelContainer/HBoxContainer"]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 0)
-layout_mode = 2
-text = "Flee"
-
-[node name="RightPadding" type="TextureRect" parent="VBoxContainer/ActionContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("3_j1hwn")
-stretch_mode = 2
-flip_h = true
+[node name="ActionPanel" parent="VBoxContainer/ActionPanelHolder" instance=ExtResource("3_xs0ci")]
+layout_mode = 1
 
 [node name="BottomContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_styles/panel = ExtResource("4_ni86x")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ap6a")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BottomContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BottomContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 10
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BottomContainer/MarginContainer"]
-layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="TextBoxContainer" type="PanelContainer" parent="VBoxContainer/BottomContainer/MarginContainer/VBoxContainer"]
+[node name="TextBox" parent="VBoxContainer/BottomContainer/VBoxContainer" instance=ExtResource("4_ltp7j")]
 layout_mode = 2
-size_flags_vertical = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BottomContainer/MarginContainer/VBoxContainer/TextBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/BottomContainer/MarginContainer/VBoxContainer/TextBoxContainer/MarginContainer"]
-texture_filter = 1
-custom_minimum_size = Vector2(0, 28)
-layout_mode = 2
-theme_override_constants/line_separation = 4
-text = "What will Fighter do?"
-fit_content = true
-
-[node name="PartyContainer" type="HBoxContainer" parent="VBoxContainer/BottomContainer/MarginContainer/VBoxContainer"]
+[node name="PartyContainer" type="HBoxContainer" parent="VBoxContainer/BottomContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 2
 
-[node name="FighterContainer" parent="VBoxContainer/BottomContainer/MarginContainer/VBoxContainer/PartyContainer" instance=ExtResource("2_mf62m")]
+[node name="FighterContainer" parent="VBoxContainer/BottomContainer/VBoxContainer/PartyContainer" instance=ExtResource("2_mf62m")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FighterContainer2" parent="VBoxContainer/BottomContainer/MarginContainer/VBoxContainer/PartyContainer" instance=ExtResource("2_mf62m")]
+[node name="FighterContainer2" parent="VBoxContainer/BottomContainer/VBoxContainer/PartyContainer" instance=ExtResource("2_mf62m")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FighterContainer3" parent="VBoxContainer/BottomContainer/MarginContainer/VBoxContainer/PartyContainer" instance=ExtResource("2_mf62m")]
+[node name="FighterContainer3" parent="VBoxContainer/BottomContainer/VBoxContainer/PartyContainer" instance=ExtResource("2_mf62m")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FighterContainer4" parent="VBoxContainer/BottomContainer/MarginContainer/VBoxContainer/PartyContainer" instance=ExtResource("2_mf62m")]
+[node name="FighterContainer4" parent="VBoxContainer/BottomContainer/VBoxContainer/PartyContainer" instance=ExtResource("2_mf62m")]
 layout_mode = 2
 size_flags_horizontal = 3

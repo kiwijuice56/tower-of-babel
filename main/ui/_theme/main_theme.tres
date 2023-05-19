@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ngj4frvw6klg"]
+
+[ext_resource type="FontVariation" path="res://main/ui/_theme/font/main_font.tres" id="1_a0urf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3gtp"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0117647, 0.0117647, 0.0117647, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txchw"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
+bg_color = Color(0.215686, 0.215686, 0.215686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.533333, 0.533333, 0.533333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fij7e"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyxqy"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[resource]
+default_font = ExtResource("1_a0urf")
+default_font_size = 16
+Button/styles/disabled = SubResource("StyleBoxFlat_y3gtp")
+Button/styles/focus = SubResource("StyleBoxFlat_txchw")
+Button/styles/hover = SubResource("StyleBoxFlat_txchw")
+Button/styles/normal = SubResource("StyleBoxFlat_fij7e")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_oyxqy")

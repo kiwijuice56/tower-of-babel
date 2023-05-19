@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d08fdqmpty7rh"]
+
+[node name="ActionButton" type="Button"]
+custom_minimum_size = Vector2(48, 0)
+text = "Action"

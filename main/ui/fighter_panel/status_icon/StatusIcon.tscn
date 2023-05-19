@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" uid="uid://bh7nukixgef7e" path="res://main/ui/fighter_panel/status_icon/sprites/drugged.png" id="1_07kk8"]
+[ext_resource type="Script" path="res://main/ui/fighter_panel/status_icon/status_icon.gd" id="2_xy68u"]
+
+[node name="StatusIcon" type="TextureRect"]
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("1_07kk8")
+stretch_mode = 2
+script = ExtResource("2_xy68u")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.2
+autostart = true
