@@ -1,0 +1,145 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhbg084m25sba"]
+
+[ext_resource type="Script" path="res://main/main.gd" id="1_q7iv8"]
+[ext_resource type="PackedScene" path="res://main/ui/UI.tscn" id="2_3alot"]
+[ext_resource type="Texture2D" uid="uid://c7qjsa7acqeyw" path="res://assets/smt_ii_demon_a.png" id="3_jdt7i"]
+[ext_resource type="Texture2D" uid="uid://dssovmfgwpg85" path="res://assets/smt_ii_demon_b.png" id="4_op6im"]
+[ext_resource type="Shader" path="res://main/shader/crt.gdshader" id="5_m5sia"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dr8f7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aafor"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.203922, 0.211765, 0.258824, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.203922, 0.211765, 0.258824, 1)
+
+[sub_resource type="Sky" id="Sky_dx1pu"]
+sky_material = SubResource("ProceduralSkyMaterial_aafor")
+
+[sub_resource type="Environment" id="Environment_3ql7n"]
+background_mode = 2
+sky = SubResource("Sky_dx1pu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjnvb"]
+shader = ExtResource("5_m5sia")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.03
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.03
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.02
+shader_parameter/aberration = 0.00700005
+shader_parameter/brightness = 1.3
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.2
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.2
+shader_parameter/vignette_opacity = 0.5
+
+[node name="Main" type="Node"]
+script = ExtResource("1_q7iv8")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="GameViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(427, 240)
+render_target_update_mode = 4
+
+[node name="RenderContainer" type="VBoxContainer" parent="SubViewportContainer/GameViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewportContainer/GameViewport/RenderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport3D" type="SubViewport" parent="SubViewportContainer/GameViewport/RenderContainer/SubViewportContainer"]
+handle_input_locally = false
+use_taa = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(427, 146)
+render_target_update_mode = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/GameViewport/RenderContainer/SubViewportContainer/Viewport3D"]
+transform = Transform3D(3.256, 0, 0, 0, 1.206, 0, 0, 0, 6.61456, 0.005, -0.51, -2.423)
+mesh = SubResource("BoxMesh_dr8f7")
+skeleton = NodePath("../../../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/GameViewport/RenderContainer/SubViewportContainer/Viewport3D"]
+transform = Transform3D(3.256, 0, 0, 0, 6.06697, 0, 0, 0, 6.61456, -3.13274, 0.448512, -2.423)
+mesh = SubResource("BoxMesh_dr8f7")
+skeleton = NodePath("../../../../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SubViewportContainer/GameViewport/RenderContainer/SubViewportContainer/Viewport3D"]
+transform = Transform3D(3.256, 0, 0, 0, 6.06697, 0, 0, 0, 6.61456, 3.19903, 0.448512, -2.423)
+mesh = SubResource("BoxMesh_dr8f7")
+skeleton = NodePath("../../../../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SubViewportContainer/GameViewport/RenderContainer/SubViewportContainer/Viewport3D"]
+transform = Transform3D(4.52889, 0, 0, 0, 6.06697, 0, 0, 0, 7.42394, 0.146314, 0.448512, -9.05153)
+mesh = SubResource("BoxMesh_dr8f7")
+skeleton = NodePath("../../../../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="SubViewportContainer/GameViewport/RenderContainer/SubViewportContainer/Viewport3D"]
+transform = Transform3D(4.52889, 0, 0, 0, 3.41022, 0, 0, 0, 7.42394, 0.146314, 4.66996, -2.9222)
+mesh = SubResource("BoxMesh_dr8f7")
+skeleton = NodePath("../../../../../..")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/GameViewport/RenderContainer/SubViewportContainer/Viewport3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999816, -0.0191974, 0, 0.0191974, 0.999816, 0.269, 0.807, 0.389)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/GameViewport/RenderContainer/SubViewportContainer/Viewport3D"]
+environment = SubResource("Environment_3ql7n")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/GameViewport/RenderContainer/SubViewportContainer/Viewport3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97276, -3.37244)
+light_color = Color(0.631373, 0.686275, 0.788235, 1)
+
+[node name="Blocker" type="ColorRect" parent="SubViewportContainer/GameViewport/RenderContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Baal" type="Sprite2D" parent="SubViewportContainer/GameViewport"]
+texture_filter = 1
+position = Vector2(186, 61)
+texture = ExtResource("3_jdt7i")
+
+[node name="Atavaka" type="Sprite2D" parent="SubViewportContainer/GameViewport"]
+texture_filter = 1
+position = Vector2(253, 62)
+texture = ExtResource("4_op6im")
+
+[node name="UI" parent="SubViewportContainer/GameViewport" instance=ExtResource("2_3alot")]
+
+[node name="Filter" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wjnvb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,39 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="tower-of-babel"
+run/main_scene="res://main/Main.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalSettings="*res://main/autoload/global_settings.gd"
+
+[display]
+
+window/size/viewport_width=427
+window/size/viewport_height=240
+window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
+
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+theme/default_font_subpixel_positioning=0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

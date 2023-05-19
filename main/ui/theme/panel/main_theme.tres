@@ -1,0 +1,33 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cq440c6o2tj70"]
+
+[ext_resource type="FontVariation" uid="uid://bwj5i8akg6h46" path="res://main/ui/theme/font/main_font.tres" id="1_a0urf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fij7e"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyxqy"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[resource]
+default_font = ExtResource("1_a0urf")
+default_font_size = 16
+Button/styles/normal = SubResource("StyleBoxFlat_fij7e")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_oyxqy")

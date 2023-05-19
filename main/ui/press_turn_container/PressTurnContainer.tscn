@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://blft2r1mbgvm2"]
+
+[ext_resource type="Script" path="res://main/ui/press_turn_container/press_turn_container.gd" id="1_q3fn8"]
+[ext_resource type="Texture2D" uid="uid://x7wjvyna12ml" path="res://main/ui/theme/panel/triangle_corner.png" id="2_kdyo8"]
+[ext_resource type="StyleBox" uid="uid://u3d8dt133kwa" path="res://main/ui/theme/panel/press_turn_panel.tres" id="3_5eyy5"]
+
+[node name="PressTurnContainer" type="HBoxContainer"]
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+script = ExtResource("1_q3fn8")
+
+[node name="LeftPadding" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_kdyo8")
+stretch_mode = 2
+flip_v = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("3_5eyy5")
+
+[node name="IconContainer" type="HBoxContainer" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="RightPadding" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_kdyo8")
+stretch_mode = 2
+flip_h = true
+flip_v = true
