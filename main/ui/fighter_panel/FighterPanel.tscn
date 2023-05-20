@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_awst1"]
 [ext_resource type="Script" path="res://main/ui/fighter_panel/fighter_panel.gd" id="2_qc43s"]
 [ext_resource type="PackedScene" path="res://main/ui/fighter_panel/status_icon/StatusIcon.tscn" id="3_whq17"]
-[ext_resource type="PackedScene" path="res://main/ui/fighter_panel/point_bar/PointBar.tscn" id="4_ajbfn"]
+[ext_resource type="PackedScene" uid="uid://iln5s8fm6cbt" path="res://main/ui/fighter_panel/point_bar/PointBar.tscn" id="4_ajbfn"]
 
 [node name="FighterPanel" type="PanelContainer"]
 offset_right = 73.0
@@ -11,14 +11,14 @@ offset_bottom = 45.0
 theme = ExtResource("1_awst1")
 script = ExtResource("2_qc43s")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="DataContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = -1
 
-[node name="StatusContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="StatusContainer" type="HBoxContainer" parent="DataContainer"]
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="VBoxContainer/StatusContainer"]
+[node name="NameLabel" type="Label" parent="DataContainer/StatusContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 13)
 layout_mode = 2
@@ -27,10 +27,10 @@ theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
 text = "Fighter"
 text_overrun_behavior = 1
 
-[node name="StatusIcon" parent="VBoxContainer/StatusContainer" instance=ExtResource("3_whq17")]
+[node name="StatusIcon" parent="DataContainer/StatusContainer" instance=ExtResource("3_whq17")]
 layout_mode = 2
 
-[node name="HealthBar" parent="VBoxContainer" instance=ExtResource("4_ajbfn")]
+[node name="HealthBar" parent="DataContainer" instance=ExtResource("4_ajbfn")]
 layout_mode = 2
 size_flags_vertical = 4
 label = "h"
@@ -38,10 +38,20 @@ high_color = Color(0.364706, 0.890196, 0.619608, 1)
 low_color = Color(0.0117647, 0.176471, 0.211765, 1)
 segments = 5
 
-[node name="MagicBar" parent="VBoxContainer" instance=ExtResource("4_ajbfn")]
+[node name="MagicBar" parent="DataContainer" instance=ExtResource("4_ajbfn")]
 layout_mode = 2
 size_flags_vertical = 4
 label = "s"
 high_color = Color(0.596078, 0.592157, 0.870588, 1)
 low_color = Color(0.117647, 0.105882, 0.301961, 1)
 segments = 5
+
+[node name="EmptyLabel" type="Label" parent="."]
+visible = false
+modulate = Color(0.231373, 0.231373, 0.231373, 1)
+custom_minimum_size = Vector2(65, 37)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "EMPTY"
+horizontal_alignment = 1
+vertical_alignment = 1

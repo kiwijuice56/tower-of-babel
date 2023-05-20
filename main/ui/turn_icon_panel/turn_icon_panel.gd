@@ -9,16 +9,8 @@ const ICON_SCENE: PackedScene = preload("res://main/ui/turn_icon_panel/turn_icon
 var total_turns: int = 0
 var half_turns: int = 0
 
-## TESTING
-#func _input(event: InputEvent) -> void:
-#	if event.is_action_pressed("ui_accept", false):
-#		initialize_turns(1 + randi() % 5)
-#	if event.is_action_pressed("ui_left", false):
-#		halve_turns(1)
-#	if event.is_action_pressed("ui_right", false):
-#		consume_turns(1)
-#	if event.is_action_pressed("ui_up", false):
-#		consume_turns(2)
+func _ready() -> void:
+	initialize_turns(4)
 
 func initialize_turns(initial_turns: int) -> void:
 	await consume_turns(total_turns)

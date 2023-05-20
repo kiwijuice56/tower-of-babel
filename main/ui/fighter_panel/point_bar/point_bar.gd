@@ -6,12 +6,9 @@ extends HBoxContainer
 @export var low_color: Color
 @export var segments: int = 4
 
-## TESTING
-#var debug: float = 0.0
-#func _process(delta: float) -> void:
-#	debug += delta
-#	set_number(int(400 * (sin(debug) / 2.0 + 0.5)))
-#	set_progress(sin(debug) / 2.0 + 0.5)
+func _ready() -> void:
+	set_number(0)
+	set_progress(0)
 
 func set_number(n: int) -> void:
 	%Number.add_theme_color_override("font_color", high_color)
@@ -28,10 +25,10 @@ func set_progress(p: float) -> void:
 		var lower_bound: float = 1.0 / segments * i
 		var upper_bound: float = 1.0 / segments * (i + 1)
 		
-		if p > lower_bound and p < upper_bound:
+		if p >= lower_bound and p < upper_bound:
 			var x: float = (p - lower_bound) / (upper_bound - lower_bound)
 			add_colored_string(label if i == 0 else "#", low_color.lerp(high_color, x))
-		elif p <= lower_bound:
+		elif p < lower_bound:
 			add_colored_string("-", low_color)
 		else:
 			add_colored_string(label if i == 0 else "#", high_color)

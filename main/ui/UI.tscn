@@ -34,10 +34,14 @@ theme_override_constants/separation = 0
 layout_mode = 2
 
 [node name="PressTurnPanel" parent="VBoxContainer/PressTurnPanelHolder" instance=ExtResource("2_stfuq")]
-layout_mode = 2
-offset_left = 143.0
-offset_right = 283.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_right = 70.0
 offset_bottom = 20.0
+grow_horizontal = 2
 
 [node name="BottomAligner" type="Control" parent="VBoxContainer"]
 layout_mode = 2
