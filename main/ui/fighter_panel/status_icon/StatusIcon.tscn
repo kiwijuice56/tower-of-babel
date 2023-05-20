@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://cb003kedep2kd"]
 
 [ext_resource type="Texture2D" uid="uid://bh7nukixgef7e" path="res://main/ui/fighter_panel/status_icon/sprites/drugged.png" id="1_07kk8"]
 [ext_resource type="Script" path="res://main/ui/fighter_panel/status_icon/status_icon.gd" id="2_xy68u"]

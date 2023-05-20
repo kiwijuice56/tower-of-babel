@@ -40,16 +40,16 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 4
 label = "h"
-high_color = Color(0.364706, 0.890196, 0.619608, 1)
-low_color = Color(0.0117647, 0.176471, 0.211765, 1)
+high_color = Color(1, 1, 1, 1)
+low_color = Color(0.188235, 0.188235, 0.188235, 1)
 segments = 5
 
 [node name="MagicBar" parent="DataContainer" instance=ExtResource("4_ajbfn")]
 layout_mode = 2
 size_flags_vertical = 4
 label = "s"
-high_color = Color(0.596078, 0.592157, 0.870588, 1)
-low_color = Color(0.117647, 0.105882, 0.301961, 1)
+high_color = Color(1, 0.25098, 0.376471, 1)
+low_color = Color(0.305882, 0, 0.25098, 1)
 segments = 5
 
 [node name="BuffContainer" parent="." instance=ExtResource("5_g4kuf")]

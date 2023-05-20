@@ -7,8 +7,8 @@ extends HBoxContainer
 @export var segments: int = 4
 
 func _ready() -> void:
-	set_number(0)
-	set_progress(0)
+	set_number(100)
+	set_progress(0.5)
 
 func set_number(n: int) -> void:
 	%Number.add_theme_color_override("font_color", high_color)
@@ -19,7 +19,7 @@ func set_progress(p: float) -> void:
 	high_color.srgb_to_linear()
 	
 	$Bar.clear()
-	add_colored_string("[", high_color)
+	$Bar.append_text(TextColor.get_colored_text("[", high_color))
 	
 	for i in range(segments):
 		var lower_bound: float = 1.0 / segments * i
@@ -27,13 +27,10 @@ func set_progress(p: float) -> void:
 		
 		if p >= lower_bound and p < upper_bound:
 			var x: float = (p - lower_bound) / (upper_bound - lower_bound)
-			add_colored_string(label if i == 0 else "#", low_color.lerp(high_color, x))
+			$Bar.append_text(TextColor.get_colored_text(label if i == 0 else "#", low_color.lerp(high_color, x)))
 		elif p < lower_bound:
-			add_colored_string("-", low_color)
+			$Bar.append_text(TextColor.get_colored_text("-", low_color))
 		else:
-			add_colored_string(label if i == 0 else "#", high_color)
+			$Bar.append_text(TextColor.get_colored_text(label if i == 0 else "#", high_color))
 	
-	add_colored_string("]", high_color)
-
-func add_colored_string(s: String, color: Color) -> void:
-	%Bar.append_text("[color=" + color.to_html(false) + "]" + s + "[/color]")
+	$Bar.append_text(TextColor.get_colored_text("]", high_color))

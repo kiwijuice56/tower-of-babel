@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://brviv1aej5v7n"]
+
+[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_c7i7v"]
+[ext_resource type="PackedScene" uid="uid://b50ihhn58hg57" path="res://main/ui/affinity_icon/AffinityIcon.tscn" id="2_6aftj"]
+
+[node name="SubActionButton" type="Button"]
+custom_minimum_size = Vector2(128, 15)
+offset_right = 106.0
+offset_bottom = 14.0
+theme = ExtResource("1_c7i7v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="AffinityIcon" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_6aftj")]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Megidolaon"
+
+[node name="CostLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "999m"
+horizontal_alignment = 2
