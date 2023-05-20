@@ -86,3 +86,79 @@ size_flags_horizontal = 3
 [node name="FighterContainer4" parent="VBoxContainer/BottomContainer/VBoxContainer/PartyContainer" instance=ExtResource("2_mf62m")]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/BottomContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.470588, 0.470588, 0.470588, 1)
+text = "Stored Demons"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/BottomContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_vertical = 8
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 3
+
+[node name="StockContainer" type="HBoxContainer" parent="VBoxContainer/BottomContainer/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 2
+
+[node name="FighterContainer" parent="VBoxContainer/BottomContainer/VBoxContainer/ScrollContainer/StockContainer" instance=ExtResource("2_mf62m")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FighterContainer2" parent="VBoxContainer/BottomContainer/VBoxContainer/ScrollContainer/StockContainer" instance=ExtResource("2_mf62m")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FighterContainer3" parent="VBoxContainer/BottomContainer/VBoxContainer/ScrollContainer/StockContainer" instance=ExtResource("2_mf62m")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FighterContainer4" parent="VBoxContainer/BottomContainer/VBoxContainer/ScrollContainer/StockContainer" instance=ExtResource("2_mf62m")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FighterContainer5" parent="VBoxContainer/BottomContainer/VBoxContainer/ScrollContainer/StockContainer" instance=ExtResource("2_mf62m")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FighterContainer6" parent="VBoxContainer/BottomContainer/VBoxContainer/ScrollContainer/StockContainer" instance=ExtResource("2_mf62m")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="InputHelpContanier" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="InputLabel" type="Label" parent="MarginContainer/InputHelpContanier"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.203922, 0.470588, 0.305882, 1)
+text = "eve@comp"
+
+[node name="InputLabel2" type="Label" parent="MarginContainer/InputHelpContanier"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.435294, 0.396078, 0.6, 1)
+text = ":/input$"
+
+[node name="InputLabel3" type="Label" parent="MarginContainer/InputHelpContanier"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "-X pass -Y auto -L stats"

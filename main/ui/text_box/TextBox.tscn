@@ -16,5 +16,5 @@ texture_filter = 1
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 theme_override_constants/line_separation = 4
-text = "Allow Atavaka to join your party?"
+text = "What will Fighter do?"
 fit_content = true

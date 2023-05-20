@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqp7mormwkfmh"]
+[gd_scene load_steps=6 format=3 uid="uid://cqp7mormwkfmh"]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_awst1"]
 [ext_resource type="Script" path="res://main/ui/fighter_panel/fighter_panel.gd" id="2_qc43s"]
 [ext_resource type="PackedScene" path="res://main/ui/fighter_panel/status_icon/StatusIcon.tscn" id="3_whq17"]
 [ext_resource type="PackedScene" uid="uid://iln5s8fm6cbt" path="res://main/ui/fighter_panel/point_bar/PointBar.tscn" id="4_ajbfn"]
+[ext_resource type="PackedScene" uid="uid://54w0j0icg4po" path="res://main/ui/fighter_panel/buff_container/BuffContainer.tscn" id="5_g4kuf"]
 
 [node name="FighterPanel" type="PanelContainer"]
 offset_right = 73.0
@@ -11,7 +12,12 @@ offset_bottom = 45.0
 theme = ExtResource("1_awst1")
 script = ExtResource("2_qc43s")
 
+[node name="SelectButton" type="Button" parent="."]
+visible = false
+layout_mode = 2
+
 [node name="DataContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = -1
 
@@ -46,9 +52,15 @@ high_color = Color(0.596078, 0.592157, 0.870588, 1)
 low_color = Color(0.117647, 0.105882, 0.301961, 1)
 segments = 5
 
-[node name="EmptyLabel" type="Label" parent="."]
+[node name="BuffContainer" parent="." instance=ExtResource("5_g4kuf")]
+unique_name_in_owner = true
 visible = false
-modulate = Color(0.231373, 0.231373, 0.231373, 1)
+layout_mode = 2
+
+[node name="EmptyLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
 custom_minimum_size = Vector2(65, 37)
 layout_mode = 2
 size_flags_horizontal = 4

@@ -8,12 +8,13 @@ const ACTION_BUTTON_SCENE: PackedScene = preload("res://main/ui/action_panel/Act
 
 signal button_pressed
 
+func _ready() -> void:
+	set_process_input(false)
+	query(["Fight", "Skill", "Talk", "Item", "Comp"])
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel", false):
 		button_pressed.emit("_cancel")
-
-func _ready() -> void:
-	set_process_input(false)
 
 func query(options: Array[String], can_cancel: bool = false, initial_select: int = 0) -> String:
 	for button in %ButtonContainer.get_children():
