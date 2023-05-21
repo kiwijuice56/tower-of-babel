@@ -4,5 +4,3 @@
 
 [node name="Action" type="Node"]
 script = ExtResource("1_e5n8q")
-target_type = 2
-target_count = 3

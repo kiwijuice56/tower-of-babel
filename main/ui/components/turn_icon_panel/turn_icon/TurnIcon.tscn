@@ -1,0 +1,152 @@
+[gd_scene load_steps=20 format=3]
+
+[ext_resource type="Texture2D" uid="uid://bf7ywmkvopabv" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/press_turn_icon1.png" id="1_ax7jy"]
+[ext_resource type="Script" path="res://main/ui/components/turn_icon_panel/turn_icon/turn_icon.gd" id="1_bppgx"]
+[ext_resource type="Texture2D" uid="uid://bfnng81hfirgn" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/flash1.png" id="2_c2igx"]
+[ext_resource type="Texture2D" uid="uid://dab2a0nafh4qq" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/press_turn_icon2.png" id="3_jmg6l"]
+[ext_resource type="Texture2D" uid="uid://cy17ac36vqswy" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/press_turn_icon3.png" id="4_05cxb"]
+[ext_resource type="Texture2D" uid="uid://36sns554hr4o" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/press_turn_icon4.png" id="5_wvcf2"]
+[ext_resource type="Texture2D" uid="uid://1exc7aio3hx" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/press_turn_icon5.png" id="6_06x5o"]
+[ext_resource type="Texture2D" uid="uid://chqd8rsg4kdwe" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/press_turn_icon6.png" id="7_r374q"]
+[ext_resource type="Texture2D" uid="uid://71w47vxepl70" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/flash2.png" id="9_pt520"]
+[ext_resource type="Texture2D" uid="uid://b3uq4pg327aum" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/flash3.png" id="10_cbejq"]
+[ext_resource type="Texture2D" uid="uid://chg7qja4y8iqa" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/flash4.png" id="11_kjxhm"]
+[ext_resource type="Texture2D" uid="uid://b2g42teoy8fkd" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/flash5.png" id="12_u3q2o"]
+[ext_resource type="Texture2D" uid="uid://ww5oms2yx2lq" path="res://main/ui/components/turn_icon_panel/turn_icon/sprites/flash6.png" id="13_x6rdm"]
+
+[sub_resource type="Animation" id="Animation_bfmv3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flash:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_j0htf"]
+resource_name = "flash"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_ax7jy"), ExtResource("3_jmg6l")]
+}
+
+[sub_resource type="Animation" id="Animation_07rwn"]
+resource_name = "remove"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_ax7jy"), ExtResource("4_05cxb"), ExtResource("5_wvcf2"), null]
+}
+
+[sub_resource type="Animation" id="Animation_qsgkb"]
+resource_name = "add"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("6_06x5o"), ExtResource("7_r374q"), ExtResource("1_ax7jy")]
+}
+
+[sub_resource type="Animation" id="Animation_i3k2o"]
+resource_name = "start_flash"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flash:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_c2igx"), ExtResource("9_pt520"), ExtResource("10_cbejq"), ExtResource("11_kjxhm"), ExtResource("12_u3q2o"), ExtResource("13_x6rdm"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [null, ExtResource("1_ax7jy")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i3pec"]
+_data = {
+"RESET": SubResource("Animation_bfmv3"),
+"add": SubResource("Animation_qsgkb"),
+"flash": SubResource("Animation_j0htf"),
+"remove": SubResource("Animation_07rwn"),
+"start_flash": SubResource("Animation_i3k2o")
+}
+
+[node name="TurnIcon" type="TextureRect"]
+texture_filter = 1
+custom_minimum_size = Vector2(12, 10)
+offset_left = 1.0
+offset_right = 13.0
+offset_bottom = 10.0
+size_flags_vertical = 0
+expand_mode = 1
+script = ExtResource("1_bppgx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+speed_scale = 4.0
+libraries = {
+"": SubResource("AnimationLibrary_i3pec")
+}
+
+[node name="Flash" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 36.0
+offset_bottom = 36.0
+stretch_mode = 2

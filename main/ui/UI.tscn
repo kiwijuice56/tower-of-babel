@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://pd2sepcqky0l"]
+[gd_scene load_steps=10 format=3 uid="uid://ddpa3hnvcq5yg"]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_eo7np"]
-[ext_resource type="PackedScene" uid="uid://bolnnaj2ao7r3" path="res://main/ui/turn_icon_panel/TurnIconPanel.tscn" id="2_stfuq"]
-[ext_resource type="PackedScene" uid="uid://ddmtkmn6mgrpt" path="res://main/ui/subaction_panel/SubactionPanel.tscn" id="3_l4xte"]
-[ext_resource type="PackedScene" uid="uid://b7gg6r0naj5rr" path="res://main/ui/action_panel/ActionPanel.tscn" id="3_xs0ci"]
-[ext_resource type="PackedScene" uid="uid://3042685y44v4" path="res://main/ui/text_box/TextBox.tscn" id="4_ltp7j"]
-[ext_resource type="PackedScene" uid="uid://csf2uyjviec2f" path="res://main/ui/comp_container/CompContainer.tscn" id="5_871hj"]
-[ext_resource type="PackedScene" uid="uid://cn5746f2a7b3i" path="res://main/ui/input_help_container/InputHelpContainer.tscn" id="6_b775o"]
+[ext_resource type="Script" path="res://main/ui/ui.gd" id="2_b3m3q"]
+[ext_resource type="PackedScene" path="res://main/ui/components/turn_icon_panel/TurnIconPanel.tscn" id="2_stfuq"]
+[ext_resource type="PackedScene" path="res://main/ui/components/subaction_panel/SubactionPanel.tscn" id="3_l4xte"]
+[ext_resource type="PackedScene" path="res://main/ui/components/action_panel/ActionPanel.tscn" id="3_xs0ci"]
+[ext_resource type="PackedScene" uid="uid://3042685y44v4" path="res://main/ui/components/text_box/TextBox.tscn" id="4_ltp7j"]
+[ext_resource type="PackedScene" uid="uid://bja1m1eh86ncm" path="res://main/ui/components/comp_container/CompContainer.tscn" id="5_871hj"]
+[ext_resource type="PackedScene" path="res://main/ui/components/input_help_container/InputHelpContainer.tscn" id="6_b775o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ap6a"]
 content_margin_top = 2.0
@@ -22,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_eo7np")
+script = ExtResource("2_b3m3q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -82,3 +84,9 @@ layout_mode = 2
 
 [node name="InputHelpContainer" parent="." instance=ExtResource("6_b775o")]
 layout_mode = 1
+
+[node name="States" type="Node" parent="."]
+
+[node name="Overworld" type="Node" parent="States"]
+
+[node name="Combat" type="Node" parent="States"]

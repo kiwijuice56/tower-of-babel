@@ -1,16 +1,31 @@
 class_name Action
 extends Node
+# Base class for all possible actions within combat (and also some actions possible 
+# in the overworld)
 
+# Selecting NONE for either targeting option will skip the target selection process
+# during combat, but is rare and only needed for actions such as passing
+
+# How many targets that this action can effect; necessary for the UI to select the 
+# appropriate amount of targets
 enum TargetCount {
-	SINGLE, ALL, RANDOM, NONE,
+	# Random can potentially affect all targets in a party, but is not consistent 
+	NONE, SINGLE, ALL, RANDOM
 }
 
+# Whether this action will affect the same or opposing party (ex: healing vs. attacking) 
 enum TargetType {
-	PLAYER, ENEMY, NONE
+	# SELF_ONLY is for actions such as focusing/charging
+	NONE, SAME, OTHER, SELF_ONLY
 }
 
+enum CostType {
+	NONE, HP, SP
+}
+
+# Powers of 2 are used in order to represent combinations of elements in a single integer
 enum Element {
-	NULL = 0,
+	NONE = 0,
 	PHYSICAL = 1,
 	FIRE = 2,
 	ICE = 4,
@@ -33,8 +48,10 @@ enum Element {
 @export_group("Usage")
 @export var battle_ready: bool
 @export var overworld_ready: bool
-@export_flags("None", "HP", "SP") var cost_type: int
+@export var cost_type: CostType
 @export var cost: int
+
+var action_owner: Fighter
 
 func commit() -> void:
 	pass
