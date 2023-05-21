@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://ch0th57t0ig5s"]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_pv32p"]
 [ext_resource type="PackedScene" uid="uid://d1806tke84cya" path="res://main/ui/components/subaction_panel/subaction_button/SubactionButton.tscn" id="1_th8ah"]
 [ext_resource type="Script" path="res://main/ui/components/subaction_panel/subaction_panel.gd" id="2_257yh"]
-[ext_resource type="Texture2D" uid="uid://dssovmfgwpg85" path="res://main/battle/fighter/smt_ii_demon_b.png" id="3_1f2ab"]
 [ext_resource type="Shader" path="res://main/shader/hologram.gdshader" id="3_mjer3"]
 [ext_resource type="Texture2D" uid="uid://brhy6wjk40cqb" path="res://main/shader/hologram_lines.png" id="4_i56vs"]
+[ext_resource type="Texture2D" uid="uid://dl0wi63d4bjqj" path="res://main/battle/fighter/eve/smt_ii_heroine.png" id="5_rbocm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nepuo"]
 shader = ExtResource("3_mjer3")
@@ -40,7 +40,7 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_nepuo")
 layout_mode = 2
-texture = ExtResource("3_1f2ab")
+texture = ExtResource("5_rbocm")
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2

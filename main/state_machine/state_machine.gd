@@ -7,9 +7,13 @@ extends Node
 var current_state: State
 
 func _ready() -> void:
+	current_state = initial_state
 	for child in get_children():
 		assert(child is State)
 		child.state_machine = self
+
+func _input(event: InputEvent) -> void:
+	current_state.input(event)
 
 func transition_to(target_state: String, data: Dictionary = {}) -> void:
 	var old_state: State = current_state
@@ -17,3 +21,4 @@ func transition_to(target_state: String, data: Dictionary = {}) -> void:
 	
 	await old_state.exit(current_state, data)
 	await current_state.enter(old_state, data)
+

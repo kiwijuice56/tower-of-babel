@@ -8,16 +8,13 @@ const ACTION_BUTTON_SCENE: PackedScene = preload("res://main/ui/components/actio
 
 signal button_pressed
 
-func _ready() -> void:
-	set_process_input(false)
-	query(["Fight", "Skill", "Item", "Talk", "COMP"])
-
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel", false):
-		button_pressed.emit(null)
+	if event.is_action_pressed("y", false):
+		button_pressed.emit("")
 
-func query(options: Array[String], can_cancel: bool = false, initial_select: int = 0) -> String:
+func query(options: Array[String], initial_select: int = 0) -> String:
 	for button in %ButtonContainer.get_children():
+		%ButtonContainer.remove_child(button)
 		button.queue_free()
 	for option in range(len(options)):
 		var new_button: Button = ACTION_BUTTON_SCENE.instantiate()
@@ -40,14 +37,13 @@ func query(options: Array[String], can_cancel: bool = false, initial_select: int
 	await tween.finished
 	
 	%ButtonContainer.get_child(initial_select).grab_focus()
-	if can_cancel:
-		set_process_input(true)
-	
 	var selected_option: String = await button_pressed
-	set_process_input(false)
 	
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "scale:y", 0.0, scale_time)
 	await tween.finished
 	
 	return selected_option
+
+func cancel() -> void:
+	button_pressed.emit(null)

@@ -8,3 +8,6 @@ func enter(before: State, data: Dictionary = {}) -> void:
 
 func exit(after: State, data: Dictionary = {}) -> void:
 	pass
+
+func input(event: InputEvent) -> void:
+	pass
