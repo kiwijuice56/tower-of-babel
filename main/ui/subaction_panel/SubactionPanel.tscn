@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddmtkmn6mgrpt"]
+
+[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_pv32p"]
+[ext_resource type="PackedScene" uid="uid://brviv1aej5v7n" path="res://main/ui/subaction_panel/subaction_button/SubactionButton.tscn" id="1_th8ah"]
+[ext_resource type="Script" path="res://main/ui/subaction_panel/subaction_panel.gd" id="2_257yh"]
+[ext_resource type="Texture2D" uid="uid://dssovmfgwpg85" path="res://assets/smt_ii_demon_b.png" id="3_1f2ab"]
+[ext_resource type="Shader" path="res://main/shader/hologram.gdshader" id="3_mjer3"]
+[ext_resource type="Texture2D" uid="uid://brhy6wjk40cqb" path="res://main/shader/hologram_lines.png" id="4_i56vs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nepuo"]
+shader = ExtResource("3_mjer3")
+shader_parameter/baseColor = Color(1, 0.25098, 0.376471, 1)
+shader_parameter/speed = 8.0
+shader_parameter/linesColor = Color(0.443137, 0, 0.329412, 1)
+shader_parameter/linesColorIntensity = 5.0
+shader_parameter/hologramTextureTiling = Vector2(1, 2)
+shader_parameter/hologramTexture = ExtResource("4_i56vs")
+
+[node name="SubactionPanel" type="MarginContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -128.0
+offset_right = 136.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_pv32p")
+theme_override_constants/margin_right = 128
+script = ExtResource("2_257yh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="Hologram" type="TextureRect" parent="HBoxContainer"]
+material = SubResource("ShaderMaterial_nepuo")
+layout_mode = 2
+texture = ExtResource("3_1f2ab")
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TabInfoContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="LeftTabLabel" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/TabInfoContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.470588, 0.470588, 0.470588, 1)
+text = "<"
+horizontal_alignment = 1
+
+[node name="TabTitleLabel" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/TabInfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.470588, 0.470588, 0.470588, 1)
+text = "Eve"
+horizontal_alignment = 1
+
+[node name="RightTabLabel" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/TabInfoContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.470588, 0.470588, 0.470588, 1)
+text = ">"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+clip_tabs = false
+tabs_visible = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ScrollContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ActionButton" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_th8ah")]
+layout_mode = 2
+
+[node name="ActionButton2" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_th8ah")]
+layout_mode = 2
+
+[node name="ActionButton3" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_th8ah")]
+layout_mode = 2
+
+[node name="ActionButton4" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_th8ah")]
+layout_mode = 2
+
+[node name="ActionButton5" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_th8ah")]
+layout_mode = 2
+
+[node name="ActionButton6" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_th8ah")]
+layout_mode = 2
+
+[node name="ActionButton7" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_th8ah")]
+layout_mode = 2
+
+[node name="ActionButton8" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_th8ah")]
+layout_mode = 2

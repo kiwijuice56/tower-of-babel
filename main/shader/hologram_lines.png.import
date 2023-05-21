@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2nhcbt32i3jt"
-path.s3tc="res://.godot/imported/smt_ii_sprites.png-fbda9209928a2a7837acea2ada423ba6.s3tc.ctex"
+uid="uid://brhy6wjk40cqb"
+path.s3tc="res://.godot/imported/hologram_lines.png-e181fd71e22c8d9a608c74e28cb91b93.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/smt_ii_sprites.png"
-dest_files=["res://.godot/imported/smt_ii_sprites.png-fbda9209928a2a7837acea2ada423ba6.s3tc.ctex"]
+source_file="res://main/shader/hologram_lines.png"
+dest_files=["res://.godot/imported/hologram_lines.png-e181fd71e22c8d9a608c74e28cb91b93.s3tc.ctex"]
 
 [params]
 

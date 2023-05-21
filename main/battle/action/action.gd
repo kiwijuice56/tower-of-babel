@@ -30,5 +30,11 @@ enum Element {
 @export var target_type: TargetType
 @export var target_count: TargetCount 
 
+@export_group("Usage")
+@export var battle_ready: bool
+@export var overworld_ready: bool
+@export_flags("None", "HP", "SP") var cost_type: int
+@export var cost: int
+
 func commit() -> void:
 	pass

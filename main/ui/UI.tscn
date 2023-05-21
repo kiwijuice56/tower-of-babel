@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf48p1ixnv8m7"]
+[gd_scene load_steps=9 format=3 uid="uid://pd2sepcqky0l"]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_eo7np"]
 [ext_resource type="PackedScene" uid="uid://bolnnaj2ao7r3" path="res://main/ui/turn_icon_panel/TurnIconPanel.tscn" id="2_stfuq"]
-[ext_resource type="PackedScene" uid="uid://brviv1aej5v7n" path="res://main/ui/sub_action_panel/action_button/SubActionButton.tscn" id="3_i06tu"]
+[ext_resource type="PackedScene" uid="uid://ddmtkmn6mgrpt" path="res://main/ui/subaction_panel/SubactionPanel.tscn" id="3_l4xte"]
 [ext_resource type="PackedScene" uid="uid://b7gg6r0naj5rr" path="res://main/ui/action_panel/ActionPanel.tscn" id="3_xs0ci"]
 [ext_resource type="PackedScene" uid="uid://3042685y44v4" path="res://main/ui/text_box/TextBox.tscn" id="4_ltp7j"]
 [ext_resource type="PackedScene" uid="uid://csf2uyjviec2f" path="res://main/ui/comp_container/CompContainer.tscn" id="5_871hj"]
@@ -52,59 +52,10 @@ size_flags_vertical = 10
 [node name="SubActionPanelHolder" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/SubActionPanelHolder"]
+[node name="SubactionPanel" parent="VBoxContainer/SubActionPanelHolder" instance=ExtResource("3_l4xte")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -120.0
-offset_top = -108.0
-offset_right = 120.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = 128
-
-[node name="SubActionPanel" type="PanelContainer" parent="VBoxContainer/SubActionPanelHolder/MarginContainer"]
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/SubActionPanelHolder/MarginContainer/SubActionPanel"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_vertical = 0
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SubActionPanelHolder/MarginContainer/SubActionPanel/ScrollContainer"]
-custom_minimum_size = Vector2(128, 64)
-layout_mode = 2
-theme_override_constants/separation = 2
-
-[node name="ActionButton" parent="VBoxContainer/SubActionPanelHolder/MarginContainer/SubActionPanel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i06tu")]
-layout_mode = 2
-
-[node name="ActionButton2" parent="VBoxContainer/SubActionPanelHolder/MarginContainer/SubActionPanel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i06tu")]
-layout_mode = 2
-
-[node name="ActionButton3" parent="VBoxContainer/SubActionPanelHolder/MarginContainer/SubActionPanel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i06tu")]
-layout_mode = 2
-
-[node name="ActionButton4" parent="VBoxContainer/SubActionPanelHolder/MarginContainer/SubActionPanel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i06tu")]
-layout_mode = 2
-
-[node name="ActionButton5" parent="VBoxContainer/SubActionPanelHolder/MarginContainer/SubActionPanel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i06tu")]
-layout_mode = 2
-
-[node name="ActionButton6" parent="VBoxContainer/SubActionPanelHolder/MarginContainer/SubActionPanel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i06tu")]
-layout_mode = 2
-
-[node name="ActionButton7" parent="VBoxContainer/SubActionPanelHolder/MarginContainer/SubActionPanel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i06tu")]
-layout_mode = 2
-
-[node name="ActionButton8" parent="VBoxContainer/SubActionPanelHolder/MarginContainer/SubActionPanel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i06tu")]
-layout_mode = 2
+offset_left = -200.0
+offset_right = 200.0
 
 [node name="ActionPanelHolder" type="Control" parent="VBoxContainer"]
 layout_mode = 2
