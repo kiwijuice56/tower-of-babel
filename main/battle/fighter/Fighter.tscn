@@ -1,13 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0ojmv0qhbe0i"]
+[gd_scene load_steps=2 format=3 uid="uid://c0ojmv0qhbe0i"]
 
 [ext_resource type="Script" path="res://main/battle/fighter/fighter.gd" id="2_118qc"]
-[ext_resource type="Script" path="res://main/battle/fighter/decision_machine/decision_machine.gd" id="3_3c5fn"]
 
 [node name="Fighter" type="Sprite2D"]
 script = ExtResource("2_118qc")
-
-[node name="DecisionMachine" type="Node" parent="."]
-script = ExtResource("3_3c5fn")
 
 [node name="BattleSkills" type="Node" parent="."]
 

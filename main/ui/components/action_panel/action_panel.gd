@@ -10,6 +10,7 @@ signal button_pressed
 
 func _ready() -> void:
 	set_process_input(false)
+	query(["Fight", "Skill", "Item", "Talk", "COMP"])
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel", false):

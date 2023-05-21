@@ -1,2 +1,0 @@
-class_name DecisionMachine
-extends Node

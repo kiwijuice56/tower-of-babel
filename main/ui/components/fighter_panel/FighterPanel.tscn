@@ -3,12 +3,13 @@
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_awst1"]
 [ext_resource type="Script" path="res://main/ui/components/fighter_panel/fighter_panel.gd" id="2_qc43s"]
 [ext_resource type="PackedScene" path="res://main/ui/components/status_icon/StatusIcon.tscn" id="3_whq17"]
-[ext_resource type="PackedScene" path="res://main/ui/components/fighter_panel/point_bar/PointBar.tscn" id="4_ajbfn"]
+[ext_resource type="PackedScene" uid="uid://blo73h66h43s3" path="res://main/ui/components/fighter_panel/point_bar/PointBar.tscn" id="4_ajbfn"]
 [ext_resource type="PackedScene" uid="uid://c8exhuxa62gdp" path="res://main/ui/components/buff_container/BuffContainer.tscn" id="5_g4kuf"]
 
 [node name="FighterPanel" type="PanelContainer"]
 offset_right = 73.0
-offset_bottom = 45.0
+offset_bottom = 39.0
+size_flags_vertical = 0
 theme = ExtResource("1_awst1")
 script = ExtResource("2_qc43s")
 
@@ -19,17 +20,17 @@ layout_mode = 2
 [node name="DataContainer" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = -1
+theme_override_constants/separation = 1
 
 [node name="StatusContainer" type="HBoxContainer" parent="DataContainer"]
 layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="DataContainer/StatusContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(0, 13)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_constants/line_spacing = 0
 text = "Fighter"
 text_overrun_behavior = 1
 

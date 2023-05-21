@@ -1,25 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhbg084m25sba"]
+[gd_scene load_steps=13 format=3 uid="uid://dhbg084m25sba"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_q7iv8"]
 [ext_resource type="PackedScene" uid="uid://ddpa3hnvcq5yg" path="res://main/ui/UI.tscn" id="2_3alot"]
+[ext_resource type="PackedScene" uid="uid://6k0xopk251al" path="res://main/dungeon/debug/DebugDungeon.tscn" id="2_6nfyl"]
+[ext_resource type="PackedScene" uid="uid://chegfk5hr6hvm" path="res://main/dungeon/player/Player.tscn" id="3_20b0g"]
 [ext_resource type="Texture2D" uid="uid://c7qjsa7acqeyw" path="res://assets/smt_ii_demon_a.png" id="3_jdt7i"]
+[ext_resource type="Texture2D" uid="uid://bkbu5apj7hx20" path="res://assets/sky.jpg" id="3_klrkv"]
 [ext_resource type="Texture2D" uid="uid://dssovmfgwpg85" path="res://assets/smt_ii_demon_b.png" id="4_op6im"]
 [ext_resource type="Shader" path="res://main/shader/crt.gdshader" id="5_m5sia"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_dr8f7"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aafor"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0.203922, 0.211765, 0.258824, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.203922, 0.211765, 0.258824, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vtv43"]
+panorama = ExtResource("3_klrkv")
 
 [sub_resource type="Sky" id="Sky_dx1pu"]
-sky_material = SubResource("ProceduralSkyMaterial_aafor")
+sky_material = SubResource("PanoramaSkyMaterial_vtv43")
 
 [sub_resource type="Environment" id="Environment_3ql7n"]
 background_mode = 2
 sky = SubResource("Sky_dx1pu")
+ambient_light_color = Color(0.333333, 0.580392, 0.788235, 1)
+ambient_light_sky_contribution = 0.08
+ambient_light_energy = 0.23
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wjnvb"]
 shader = ExtResource("5_m5sia")
@@ -81,36 +82,13 @@ stretch = true
 handle_input_locally = false
 use_taa = true
 canvas_item_default_texture_filter = 0
-size = Vector2i(427, 146)
+size = Vector2i(427, 156)
 render_target_update_mode = 4
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport"]
-transform = Transform3D(3.256, 0, 0, 0, 1.206, 0, 0, 0, 6.61456, 0.005, -0.51, -2.423)
-mesh = SubResource("BoxMesh_dr8f7")
-skeleton = NodePath("../../../../../..")
+[node name="DebugDungeon" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport" instance=ExtResource("2_6nfyl")]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport"]
-transform = Transform3D(3.256, 0, 0, 0, 6.06697, 0, 0, 0, 6.61456, -3.13274, 0.448512, -2.423)
-mesh = SubResource("BoxMesh_dr8f7")
-skeleton = NodePath("../../../../../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport"]
-transform = Transform3D(3.256, 0, 0, 0, 6.06697, 0, 0, 0, 6.61456, 3.19903, 0.448512, -2.423)
-mesh = SubResource("BoxMesh_dr8f7")
-skeleton = NodePath("../../../../../..")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport"]
-transform = Transform3D(4.52889, 0, 0, 0, 6.06697, 0, 0, 0, 7.42394, 0.146314, 0.448512, -9.05153)
-mesh = SubResource("BoxMesh_dr8f7")
-skeleton = NodePath("../../../../../..")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport"]
-transform = Transform3D(4.52889, 0, 0, 0, 3.41022, 0, 0, 0, 7.42394, 0.146314, 4.66996, -2.9222)
-mesh = SubResource("BoxMesh_dr8f7")
-skeleton = NodePath("../../../../../..")
-
-[node name="Camera3D" type="Camera3D" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.999816, -0.0191974, 0, 0.0191974, 0.999816, 0.269, 0.807, 0.389)
+[node name="Player" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport" instance=ExtResource("3_20b0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport"]
 environment = SubResource("Environment_3ql7n")
@@ -120,18 +98,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97276, -3.37244)
 light_color = Color(0.631373, 0.686275, 0.788235, 1)
 
 [node name="Blocker" type="ColorRect" parent="ViewportContainer/Viewport/RenderContainer"]
-custom_minimum_size = Vector2(0, 90)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_vertical = 8
 
 [node name="Baal" type="Sprite2D" parent="ViewportContainer/Viewport"]
 texture_filter = 1
-position = Vector2(186, 61)
+position = Vector2(194, 70)
 texture = ExtResource("3_jdt7i")
 
 [node name="Atavaka" type="Sprite2D" parent="ViewportContainer/Viewport"]
 texture_filter = 1
-position = Vector2(253, 62)
+position = Vector2(257, 71)
 texture = ExtResource("4_op6im")
 
 [node name="UI" parent="ViewportContainer/Viewport" instance=ExtResource("2_3alot")]

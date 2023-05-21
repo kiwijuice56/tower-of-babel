@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://blo73h66h43s3"]
 
 [ext_resource type="Script" path="res://main/ui/components/fighter_panel/point_bar/point_bar.gd" id="1_ekm4o"]
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_th32n"]
@@ -22,6 +22,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "[s####]"
 fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="Number" type="Label" parent="."]
 unique_name_in_owner = true
@@ -31,5 +33,6 @@ layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.529412, 0.901961, 0.341176, 1)
+theme_override_constants/line_spacing = 0
 text = "999"
 horizontal_alignment = 2

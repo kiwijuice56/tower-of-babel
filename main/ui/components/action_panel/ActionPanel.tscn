@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://clqtg7frh06o0"]
 
 [ext_resource type="Texture2D" uid="uid://x7wjvyna12ml" path="res://main/ui/_theme/panel/triangle_corner.png" id="1_g37vp"]
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_ysm2p"]
@@ -32,10 +32,11 @@ script = ExtResource("2_5wy08")
 
 [node name="LeftPadding" type="TextureRect" parent="."]
 texture_filter = 1
-custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 texture = ExtResource("1_g37vp")
-expand_mode = 3
+stretch_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -55,8 +56,8 @@ layout_mode = 2
 
 [node name="RightPadding" type="TextureRect" parent="."]
 texture_filter = 1
-custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
+size_flags_vertical = 8
 texture = ExtResource("1_g37vp")
-expand_mode = 2
+stretch_mode = 2
 flip_h = true

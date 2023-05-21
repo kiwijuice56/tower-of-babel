@@ -1,17 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddpa3hnvcq5yg"]
+[gd_scene load_steps=14 format=3 uid="uid://ddpa3hnvcq5yg"]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_eo7np"]
 [ext_resource type="Script" path="res://main/ui/ui.gd" id="2_b3m3q"]
-[ext_resource type="PackedScene" path="res://main/ui/components/turn_icon_panel/TurnIconPanel.tscn" id="2_stfuq"]
+[ext_resource type="PackedScene" uid="uid://cvfsxloo2uw0j" path="res://main/ui/components/turn_icon_panel/TurnIconPanel.tscn" id="2_stfuq"]
 [ext_resource type="PackedScene" uid="uid://blctfrnpr2t5r" path="res://main/ui/components/subaction_panel/SubactionPanel.tscn" id="3_l4xte"]
-[ext_resource type="PackedScene" path="res://main/ui/components/action_panel/ActionPanel.tscn" id="3_xs0ci"]
+[ext_resource type="Script" path="res://main/state_machine/state_machine.gd" id="3_oh1md"]
+[ext_resource type="PackedScene" uid="uid://clqtg7frh06o0" path="res://main/ui/components/action_panel/ActionPanel.tscn" id="3_xs0ci"]
+[ext_resource type="Script" path="res://main/state_machine/state.gd" id="4_ffaiq"]
 [ext_resource type="PackedScene" uid="uid://3042685y44v4" path="res://main/ui/components/text_box/TextBox.tscn" id="4_ltp7j"]
 [ext_resource type="PackedScene" uid="uid://bja1m1eh86ncm" path="res://main/ui/components/comp_container/CompContainer.tscn" id="5_871hj"]
 [ext_resource type="PackedScene" uid="uid://dn78r0yvullx" path="res://main/ui/components/input_help_container/InputHelpContainer.tscn" id="6_b775o"]
+[ext_resource type="PackedScene" uid="uid://blo73h66h43s3" path="res://main/ui/components/fighter_panel/point_bar/PointBar.tscn" id="9_al60w"]
+[ext_resource type="Script" path="res://main/ui/components/fighter_panel/point_bar/fluctuating_point_bar.gd" id="10_4mm6g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ap6a"]
 content_margin_top = 2.0
-content_margin_bottom = 16.0
+content_margin_bottom = 14.0
 bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
 
 [node name="UI" type="Control"]
@@ -25,6 +29,14 @@ size_flags_horizontal = 3
 theme = ExtResource("1_eo7np")
 script = ExtResource("2_b3m3q")
 
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state_owner", "initial_state")]
+script = ExtResource("3_oh1md")
+state_owner = NodePath("..")
+initial_state = NodePath("Dungeon")
+
+[node name="Dungeon" type="Node" parent="StateMachine"]
+script = ExtResource("4_ffaiq")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -37,14 +49,14 @@ theme_override_constants/separation = 0
 [node name="PressTurnPanelHolder" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="PressTurnPanel" parent="VBoxContainer/PressTurnPanelHolder" instance=ExtResource("2_stfuq")]
+[node name="TurnIconPanel" parent="VBoxContainer/PressTurnPanelHolder" instance=ExtResource("2_stfuq")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -70.0
-offset_right = 70.0
-offset_bottom = 20.0
+offset_left = -67.0
+offset_right = 67.0
+offset_bottom = 17.0
 grow_horizontal = 2
 
 [node name="BottomAligner" type="Control" parent="VBoxContainer"]
@@ -52,6 +64,7 @@ layout_mode = 2
 size_flags_vertical = 10
 
 [node name="SubActionPanelHolder" type="Control" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="SubactionPanel" parent="VBoxContainer/SubActionPanelHolder" instance=ExtResource("3_l4xte")]
@@ -63,7 +76,6 @@ offset_right = 200.0
 layout_mode = 2
 
 [node name="ActionPanel" parent="VBoxContainer/ActionPanelHolder" instance=ExtResource("3_xs0ci")]
-visible = false
 layout_mode = 1
 
 [node name="BottomPanel" type="PanelContainer" parent="VBoxContainer"]
@@ -80,15 +92,35 @@ theme_override_constants/separation = 2
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="EncounterRadarBox" type="PanelContainer" parent="VBoxContainer/BottomPanel/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BottomPanel/VBoxContainer/EncounterRadarBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="PointBar" parent="VBoxContainer/BottomPanel/VBoxContainer/EncounterRadarBox/MarginContainer" instance=ExtResource("9_al60w")]
+layout_mode = 2
+script = ExtResource("10_4mm6g")
+fluctuate_speed = 6.0
+fluctuate_max = 0.03
+label = "d"
+high_color = Color(1, 0.25098, 0.376471, 1)
+low_color = Color(0.305882, 0, 0.25098, 1)
+segments = 28
+
+[node name="Label" type="Label" parent="VBoxContainer/BottomPanel/VBoxContainer/EncounterRadarBox"]
+visible = false
+layout_mode = 2
+text = "#######-#################################
+#######-#################################"
+
 [node name="CompContainer" parent="VBoxContainer/BottomPanel/VBoxContainer" instance=ExtResource("5_871hj")]
 layout_mode = 2
 
 [node name="InputHelpContainer" parent="." instance=ExtResource("6_b775o")]
 unique_name_in_owner = true
 layout_mode = 1
-
-[node name="StateMachine" type="Node" parent="."]
-
-[node name="Overworld" type="Node" parent="StateMachine"]
-
-[node name="Combat" type="Node" parent="StateMachine"]
