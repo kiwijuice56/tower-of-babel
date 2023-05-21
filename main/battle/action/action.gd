@@ -1,15 +1,15 @@
 class_name Action
 extends Node
-# Base class for all possible actions within combat (and also some actions possible 
-# in the overworld)
+# Base class for all possible actions within combat
+
 
 # Selecting NONE for either targeting option will skip the target selection process
-# during combat, but is rare and only needed for actions such as passing
+# during combat, but is rare and only needed for actions such as Pass
 
 # How many targets that this action can effect; necessary for the UI to select the 
 # appropriate amount of targets
 enum TargetCount {
-	# Random can potentially affect all targets in a party, but is not consistent 
+	# Random can potentially affect all targets in a party
 	NONE, SINGLE, ALL, RANDOM
 }
 

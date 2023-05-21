@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bja1m1eh86ncm"]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_5j75e"]
-[ext_resource type="PackedScene" uid="uid://cog6gk7cwtduq" path="res://main/ui/components/fighter_panel/FighterPanel.tscn" id="2_qrjmm"]
+[ext_resource type="PackedScene" uid="uid://d1d6sis5a5ivg" path="res://main/ui/components/fighter_panel/FighterPanel.tscn" id="2_qrjmm"]
 
 [node name="CompContainer" type="VBoxContainer"]
 theme = ExtResource("1_5j75e")

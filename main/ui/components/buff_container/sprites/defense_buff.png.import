@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbjhxkv3ylba7"
-path="res://.godot/imported/accurary_evasion_buff.png-919949432836f3d8f02be7a352abca6d.ctex"
+uid="uid://ck4c2ow58pxiw"
+path="res://.godot/imported/defense_buff.png-3f63af625cab0a99b31d237cbacbbce5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ui/components/fighter_panel/buff_container/sprites/accurary_evasion_buff.png"
-dest_files=["res://.godot/imported/accurary_evasion_buff.png-919949432836f3d8f02be7a352abca6d.ctex"]
+source_file="res://main/ui/components/buff_container/sprites/defense_buff.png"
+dest_files=["res://.godot/imported/defense_buff.png-3f63af625cab0a99b31d237cbacbbce5.ctex"]
 
 [params]
 

@@ -1,5 +1,6 @@
 class_name PointBar
 extends HBoxContainer
+# Displays a progress bar with text, especially for HP and SP
 
 @export var label: String
 @export var high_color: Color 

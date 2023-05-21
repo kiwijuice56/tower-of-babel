@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jvymxo12gwpv"
-path="res://.godot/imported/attack_buff.png-d312045343406f472c0eb54cc528066b.ctex"
+uid="uid://crlblkxgvi57x"
+path="res://.godot/imported/continue2.png-08ca3e30f649388ca55f8502c39b8928.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ui/components/fighter_panel/buff_container/sprites/attack_buff.png"
-dest_files=["res://.godot/imported/attack_buff.png-d312045343406f472c0eb54cc528066b.ctex"]
+source_file="res://main/ui/components/text_box/sprites/continue2.png"
+dest_files=["res://.godot/imported/continue2.png-08ca3e30f649388ca55f8502c39b8928.ctex"]
 
 [params]
 

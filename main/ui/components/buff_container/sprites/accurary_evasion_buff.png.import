@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1ga6mj2lqj4f"
-path="res://.godot/imported/radiation_poison.png-60eb3014d3af41ec9e838b37941a02e3.ctex"
+uid="uid://dbjhxkv3ylba7"
+path="res://.godot/imported/accurary_evasion_buff.png-144fd5ccc817230a6c87d0c6f706024b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ui/components/fighter_panel/status_icon/sprites/radiation_poison.png"
-dest_files=["res://.godot/imported/radiation_poison.png-60eb3014d3af41ec9e838b37941a02e3.ctex"]
+source_file="res://main/ui/components/buff_container/sprites/accurary_evasion_buff.png"
+dest_files=["res://.godot/imported/accurary_evasion_buff.png-144fd5ccc817230a6c87d0c6f706024b.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 class_name ActionPanel
 extends HBoxContainer
-# Handles main combat and dialogue prompts
+# Handles queries of basic choices for the player, such as dialogue or navigating the COMP menu
 
 const ACTION_BUTTON_SCENE: PackedScene = preload("res://main/ui/components/action_panel/ActionButton.tscn")
 
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel", false):
-		button_pressed.emit("_cancel")
+		button_pressed.emit(null)
 
 func query(options: Array[String], can_cancel: bool = false, initial_select: int = 0) -> String:
 	for button in %ButtonContainer.get_children():
@@ -21,6 +21,7 @@ func query(options: Array[String], can_cancel: bool = false, initial_select: int
 	for option in range(len(options)):
 		var new_button: Button = ACTION_BUTTON_SCENE.instantiate()
 		# Allows focus to cycle left and right
+		# Bug: Will not work unless the neighbor is set before the button is added to the scene
 		if option == 0:
 			new_button.set_focus_neighbor(SIDE_LEFT, "../" + options[-1])
 		elif option == len(options) - 1:

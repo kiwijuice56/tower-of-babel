@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cog6gk7cwtduq"]
+[gd_scene load_steps=6 format=3 uid="uid://d1d6sis5a5ivg"]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_awst1"]
 [ext_resource type="Script" path="res://main/ui/components/fighter_panel/fighter_panel.gd" id="2_qc43s"]
-[ext_resource type="PackedScene" path="res://main/ui/components/fighter_panel/status_icon/StatusIcon.tscn" id="3_whq17"]
+[ext_resource type="PackedScene" path="res://main/ui/components/status_icon/StatusIcon.tscn" id="3_whq17"]
 [ext_resource type="PackedScene" path="res://main/ui/components/fighter_panel/point_bar/PointBar.tscn" id="4_ajbfn"]
-[ext_resource type="PackedScene" path="res://main/ui/components/fighter_panel/buff_container/BuffContainer.tscn" id="5_g4kuf"]
+[ext_resource type="PackedScene" uid="uid://c8exhuxa62gdp" path="res://main/ui/components/buff_container/BuffContainer.tscn" id="5_g4kuf"]
 
 [node name="FighterPanel" type="PanelContainer"]
 offset_right = 73.0

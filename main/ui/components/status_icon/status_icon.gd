@@ -1,14 +1,13 @@
 class_name StatusIcon
 extends TextureRect
-# Cycles through status effect sprites on a FighterPanel
+# Displays the status effects inflicted on a Fighter
 
-const SPRITE_PATH = "res://main/ui/components/fighter_panel/status_icon/sprites/"
-
+const SPRITE_PATH = "res://main/ui/components/status_icon/sprites/"
 const SPRITES: Dictionary = {
-	Fighter.StatusEffect.BLEED : preload(SPRITE_PATH + "bleed.png"),
-	Fighter.StatusEffect.DEAD : preload(SPRITE_PATH + "dead.png"),
-	Fighter.StatusEffect.RADIATION : preload(SPRITE_PATH + "radiation_poison.png"),
-	Fighter.StatusEffect.DRUGGED : preload(SPRITE_PATH + "drugged.png")
+	Fighter.StatusEffect.BLEED: preload(SPRITE_PATH + "bleed.png"),
+	Fighter.StatusEffect.DEAD: preload(SPRITE_PATH + "dead.png"),
+	Fighter.StatusEffect.RADIATION: preload(SPRITE_PATH + "radiation_poison.png"),
+	Fighter.StatusEffect.DRUGGED: preload(SPRITE_PATH + "drugged.png")
 }
 var effects: Array[int]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1meurppswwhb"
-path="res://.godot/imported/dead.png-0ebc90aa55924c7ef40b386a1055fe58.ctex"
+uid="uid://bh7nukixgef7e"
+path="res://.godot/imported/drugged.png-77da325840dd17af6f60cbd51781a022.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ui/components/fighter_panel/status_icon/sprites/dead.png"
-dest_files=["res://.godot/imported/dead.png-0ebc90aa55924c7ef40b386a1055fe58.ctex"]
+source_file="res://main/ui/components/status_icon/sprites/drugged.png"
+dest_files=["res://.godot/imported/drugged.png-77da325840dd17af6f60cbd51781a022.ctex"]
 
 [params]
 

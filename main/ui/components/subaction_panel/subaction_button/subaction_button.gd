@@ -7,8 +7,8 @@ extends Button
 
 var action: Action
 
-func initialize(given_action: Action) -> void:
-	action = given_action
+func initialize(action: Action) -> void:
+	self.action = action
 	
 	%CostLabel.text = str(action.cost)
 	match action.cost_type:

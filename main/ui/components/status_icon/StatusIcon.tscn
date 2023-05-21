@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource type="Texture2D" uid="uid://bh7nukixgef7e" path="res://main/ui/components/fighter_panel/status_icon/sprites/drugged.png" id="1_07kk8"]
-[ext_resource type="Script" path="res://main/ui/components/fighter_panel/status_icon/status_icon.gd" id="2_xy68u"]
+[ext_resource type="Texture2D" uid="uid://bh7nukixgef7e" path="res://main/ui/components/status_icon/sprites/drugged.png" id="1_07kk8"]
+[ext_resource type="Script" path="res://main/ui/components/status_icon/status_icon.gd" id="2_xy68u"]
 
 [node name="StatusIcon" type="TextureRect"]
 size_flags_horizontal = 8
