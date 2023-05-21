@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkbu5apj7hx20"
-path.s3tc="res://.godot/imported/sky.jpg-54a4f35421c7d14ab9141088d14ba440.s3tc.ctex"
+path.s3tc="res://.godot/imported/sky.jpg-ff319acc50da0ffd1b8f48127ec56f2c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sky.jpg"
-dest_files=["res://.godot/imported/sky.jpg-54a4f35421c7d14ab9141088d14ba440.s3tc.ctex"]
+source_file="res://main/dungeon/debug/sky.jpg"
+dest_files=["res://.godot/imported/sky.jpg-ff319acc50da0ffd1b8f48127ec56f2c.s3tc.ctex"]
 
 [params]
 

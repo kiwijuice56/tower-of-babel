@@ -9,25 +9,20 @@ const SPRITES: Dictionary = {
 	Fighter.StatusEffect.RADIATION: preload(SPRITE_PATH + "radiation_poison.png"),
 	Fighter.StatusEffect.DRUGGED: preload(SPRITE_PATH + "drugged.png")
 }
-var effects: Array[int]
+var status_effects: Array[int]
 
 func _ready() -> void:
 	texture = null
 	%Timer.timeout.connect(_on_swap_timeout)
 
 func _on_swap_timeout() -> void:
-	if effects.is_empty():
+	if status_effects.is_empty():
 		texture = null
 	else:
-		effects.append(effects.pop_front())
-		texture = SPRITES[effects.front()]
+		status_effects.append(status_effects.pop_front())
+		texture = SPRITES[status_effects.front()]
 
-func add_status_effect(status: int) -> void:
-	effects.insert(0, status)
+func set_status_effects(status_effects: Array[int]) -> void:
+	self.status_effects = status_effects.duplicate()
 	_on_swap_timeout()
 	%Timer.start()
-
-func remove_status_effect(status: int) -> void:
-	if effects.find(status) == -1:
-		return
-	effects.remove_at(effects.find(status))

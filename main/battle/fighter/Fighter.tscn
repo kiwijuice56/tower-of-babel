@@ -1,10 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0ojmv0qhbe0i"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://main/battle/fighter/fighter.gd" id="2_118qc"]
+[ext_resource type="Script" path="res://main/state_machine/state_machine.gd" id="2_up3n1"]
+[ext_resource type="Script" path="res://main/battle/fighter/states/idle_state.gd" id="3_ictc8"]
+[ext_resource type="Script" path="res://main/battle/fighter/states/player_control_state.gd" id="4_iu3oj"]
 
 [node name="Fighter" type="Sprite2D"]
 script = ExtResource("2_118qc")
 
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state_owner", "initial_state")]
+script = ExtResource("2_up3n1")
+state_owner = NodePath("..")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_ictc8")
+
+[node name="PlayerControl" type="Node" parent="StateMachine"]
+script = ExtResource("4_iu3oj")
+
 [node name="BattleSkills" type="Node" parent="."]
 
 [node name="ConversationSkills" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

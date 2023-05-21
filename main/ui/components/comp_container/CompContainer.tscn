@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bja1m1eh86ncm"]
+[gd_scene load_steps=4 format=3 uid="uid://bja1m1eh86ncm"]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_5j75e"]
+[ext_resource type="Script" path="res://main/ui/components/comp_container/comp_container.gd" id="2_dmrvx"]
 [ext_resource type="PackedScene" uid="uid://d1d6sis5a5ivg" path="res://main/ui/components/fighter_panel/FighterPanel.tscn" id="2_qrjmm"]
 
 [node name="CompContainer" type="VBoxContainer"]
 theme = ExtResource("1_5j75e")
+script = ExtResource("2_dmrvx")
 
 [node name="ActivePartyContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 2
@@ -24,6 +27,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="StockHolder" type="Control" parent="."]
+unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(0, 73)
 layout_mode = 2
@@ -52,6 +56,7 @@ horizontal_scroll_mode = 2
 vertical_scroll_mode = 3
 
 [node name="StockContainer" type="HBoxContainer" parent="StockHolder/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 size_flags_vertical = 8

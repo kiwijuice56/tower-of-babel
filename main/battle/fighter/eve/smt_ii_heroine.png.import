@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dssovmfgwpg85"
-path="res://.godot/imported/smt_ii_demon_b.png-2570c18e6659fcaccf615cf2256a27f0.ctex"
+uid="uid://dl0wi63d4bjqj"
+path="res://.godot/imported/smt_ii_heroine.png-de1ff9cf476c789b6b28fcf06ed375e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/smt_ii_demon_b.png"
-dest_files=["res://.godot/imported/smt_ii_demon_b.png-2570c18e6659fcaccf615cf2256a27f0.ctex"]
+source_file="res://main/battle/fighter/eve/smt_ii_heroine.png"
+dest_files=["res://.godot/imported/smt_ii_heroine.png-de1ff9cf476c789b6b28fcf06ed375e9.ctex"]
 
 [params]
 

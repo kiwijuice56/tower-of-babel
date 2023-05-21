@@ -8,7 +8,7 @@ var tween: Tween
 
 var dir: Vector3 = Vector3(0, 0, -1)
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 	if tween != null and tween.is_running():
 		return
 	
