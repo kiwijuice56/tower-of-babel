@@ -9,6 +9,7 @@ const SPRITES: Dictionary = {
 	Fighter.StatusEffect.RADIATION: preload(SPRITE_PATH + "radiation_poison.png"),
 	Fighter.StatusEffect.DRUGGED: preload(SPRITE_PATH + "drugged.png")
 }
+
 var status_effects: Array[int]
 
 func _ready() -> void:

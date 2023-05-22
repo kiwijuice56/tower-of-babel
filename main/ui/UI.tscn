@@ -31,6 +31,7 @@ theme = ExtResource("1_eo7np")
 script = ExtResource("2_b3m3q")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state_owner", "initial_state")]
+unique_name_in_owner = true
 script = ExtResource("3_oh1md")
 state_owner = NodePath("..")
 initial_state = NodePath("Dungeon")

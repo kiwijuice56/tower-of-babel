@@ -28,7 +28,6 @@ texture_filter = 1
 custom_minimum_size = Vector2(128, 28)
 layout_mode = 2
 theme_override_constants/line_separation = 4
-text = "What will Fighter do?"
 fit_content = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -37,7 +36,6 @@ one_shot = true
 
 [node name="ContinueIcon" type="TextureRect" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8

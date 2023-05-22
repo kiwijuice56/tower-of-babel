@@ -19,6 +19,17 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("a", false):
 		accepted.emit()
 
+func _on_character_timeout() -> void:
+	if %Label.visible_characters == len(%Label.text):
+		text_displayed.emit()
+		return
+	
+	%Label.visible_characters += 1
+	if speed_up_enabled and Input.is_action_pressed("left_shoulder"):
+		%Timer.start(seconds_per_character * (1.0 / speed_up))
+	else:
+		%Timer.start(seconds_per_character)
+
 func display_text(text: String, accepting_input: bool) -> void:
 	speed_up_enabled = accepting_input
 	if accepting_input and is_instance_valid(CommonReference.ui):
@@ -42,21 +53,12 @@ func display_text(text: String, accepting_input: bool) -> void:
 			CommonReference.ui.input_help.remove_instructions({"a" : "next"})
 		set_process_input(false)
 		%ContinueIcon.visible = false
-		
-		
 	else:
 		%Timer.start(after_delay)
 		await %Timer.timeout
-	
-	%Label.text = ""
 
-func _on_character_timeout() -> void:
-	if %Label.visible_characters == len(%Label.text):
-		text_displayed.emit()
-		return
-	
-	%Label.visible_characters += 1
-	if speed_up_enabled and Input.is_action_pressed("left_shoulder"):
-		%Timer.start(seconds_per_character * (1.0 / speed_up))
-	else:
-		%Timer.start(seconds_per_character)
+func transition_in() -> void:
+	pass
+
+func transition_out() -> void:
+	pass

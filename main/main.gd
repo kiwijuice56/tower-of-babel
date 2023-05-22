@@ -1,6 +1,6 @@
 class_name Main
 extends Node
-# Root scripts
+# Root script
 
 func _ready() -> void:
 	randomize()

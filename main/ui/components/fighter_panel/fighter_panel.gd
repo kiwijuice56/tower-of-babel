@@ -4,6 +4,17 @@ extends PanelContainer
 
 var fighter: Fighter
 
+func _on_health_changed(health: int) -> void:
+	%HealthBar.set_number(health)
+	%HealthBar.set_progress(health / float(fighter.max_health))
+
+func _on_stamina_changed(stamina: int) -> void:
+	%StaminaBar.set_number(stamina)
+	%StaminaBar.set_progress(stamina / float(fighter.max_stamina))
+
+func _on_status_changed(status_effects: Array[int]) -> void:
+	%StatusIcon.set_status_effects(status_effects)
+
 func initialize(fighter: Fighter) -> void:
 	self.fighter = fighter
 	if fighter == null:
@@ -18,14 +29,3 @@ func initialize(fighter: Fighter) -> void:
 	_on_health_changed(fighter.health)
 	_on_stamina_changed(fighter.stamina)
 	_on_status_changed(fighter.status_effects)
-
-func _on_health_changed(health: int) -> void:
-	%HealthBar.set_number(health)
-	%HealthBar.set_progress(health / float(fighter.max_health))
-
-func _on_stamina_changed(stamina: int) -> void:
-	%StaminaBar.set_number(stamina)
-	%StaminaBar.set_progress(stamina / float(fighter.max_stamina))
-
-func _on_status_changed(status_effects: Array[int]) -> void:
-	%StatusIcon.set_status_effects(status_effects)

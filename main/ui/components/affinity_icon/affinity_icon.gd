@@ -17,7 +17,7 @@ const SPRITES: Dictionary = {
 }
 
 func _ready() -> void:
-	set_element(randi() % (len(Action.Element) - 1))
+	initialize(randi() % (len(Action.Element) - 1))
 
-func set_element(element: int) -> void:
+func initialize(element: int) -> void:
 	texture = SPRITES[int(pow(2, element))] 

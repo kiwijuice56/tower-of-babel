@@ -6,3 +6,4 @@ extends Control
 # setget (if needed) and also allows Godot to pick up type hints
 @onready var input_help: InputHelpContainer = %InputHelpContainer
 @onready var text_box: TextBox = %TextBox
+@onready var state_machine: StateMachine = %StateMachine

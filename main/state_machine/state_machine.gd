@@ -21,4 +21,3 @@ func transition_to(target_state: String, data: Dictionary = {}) -> void:
 	
 	await old_state.exit(current_state, data)
 	await current_state.enter(old_state, data)
-

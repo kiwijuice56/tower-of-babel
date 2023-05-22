@@ -5,11 +5,24 @@ extends Node3D
 @export var turn_speed: float = 0.4
 
 var tween: Tween
-
 var dir: Vector3 = Vector3(0, 0, -1)
+var walking_enabled: bool = true
+
+signal stepped
+
+func _ready() -> void:
+	await CommonReference.ui.ready
+	CommonReference.ui.state_machine.get_node("Dungeon").entered.connect(_on_ui_dungeon_entered)
+	CommonReference.ui.state_machine.get_node("Dungeon").exited.connect(_on_ui_dungeon_exited)
+
+func _on_ui_dungeon_entered(_data: Dictionary) -> void:
+	walking_enabled = true
+
+func _on_ui_dungeon_exited(_data: Dictionary) -> void:
+	walking_enabled = false
 
 func _physics_process(_delta: float):
-	if tween != null and tween.is_running():
+	if not walking_enabled or tween != null and tween.is_running():
 		return
 	
 	var new_dir: Vector3 = dir
@@ -32,6 +45,7 @@ func _physics_process(_delta: float):
 	if Input.is_action_pressed("up"):
 		%CollisionCheck.force_raycast_update()
 		if not %CollisionCheck.is_colliding(): 
+			stepped.emit()
 			tween = get_tree().create_tween()
 			tween.tween_property(self, "position", position + dir, move_speed)
 			return

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dhbg084m25sba"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_q7iv8"]
-[ext_resource type="PackedScene" uid="uid://d0xow5b8nlpe" path="res://main/ui/UI.tscn" id="2_3alot"]
-[ext_resource type="PackedScene" uid="uid://6k0xopk251al" path="res://main/dungeon/debug/DebugDungeon.tscn" id="2_6nfyl"]
+[ext_resource type="PackedScene" uid="uid://clig0rvnh7q5s" path="res://main/ui/UI.tscn" id="2_3alot"]
+[ext_resource type="PackedScene" uid="uid://cdd00aja4g0a0" path="res://main/dungeon/debug/DebugDungeon.tscn" id="2_6nfyl"]
 [ext_resource type="Script" path="res://main/battle/party/party.gd" id="2_eowhd"]
 [ext_resource type="PackedScene" uid="uid://chegfk5hr6hvm" path="res://main/dungeon/player/Player.tscn" id="3_20b0g"]
 [ext_resource type="PackedScene" uid="uid://cbrs5f54834bb" path="res://main/battle/fighter/eve/Eve.tscn" id="3_ak8v6"]
@@ -35,10 +35,14 @@ shader_parameter/vignette_opacity = 0.5
 [node name="Main" type="Node"]
 script = ExtResource("1_q7iv8")
 
+[node name="FileManager" type="Node" parent="."]
+
 [node name="PlayerParty" type="Node" parent="."]
 script = ExtResource("2_eowhd")
 
 [node name="Eve" parent="PlayerParty" instance=ExtResource("3_ak8v6")]
+
+[node name="PlayerInventory" type="Node" parent="."]
 
 [node name="BattleQueue" type="Node" parent="."]
 
@@ -78,7 +82,9 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(427, 166)
 render_target_update_mode = 4
 
-[node name="DebugDungeon" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport" instance=ExtResource("2_6nfyl")]
+[node name="Dungeon" type="Node" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport"]
+
+[node name="DebugDungeon" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport/Dungeon" instance=ExtResource("2_6nfyl")]
 
 [node name="Player" parent="ViewportContainer/Viewport/RenderContainer/DungeonViewportContainer/DungeonViewport" instance=ExtResource("3_20b0g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)

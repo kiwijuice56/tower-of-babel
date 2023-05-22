@@ -3,11 +3,14 @@ extends Node
 
 var state_machine: StateMachine
 
+signal entered(data)
+signal exited(data)
+
 func enter(before: State, data: Dictionary = {}) -> void:
-	pass
+	entered.emit(data)
 
 func exit(after: State, data: Dictionary = {}) -> void:
-	pass
+	exited.emit(data)
 
 func input(event: InputEvent) -> void:
 	pass

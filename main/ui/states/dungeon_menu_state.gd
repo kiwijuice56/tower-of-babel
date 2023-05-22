@@ -6,12 +6,14 @@ func input(event: InputEvent) -> void:
 		%ActionPanel.cancel()
 		state_machine.transition_to("Dungeon")
 
-func enter(_before: State, _data: Dictionary = {}) -> void:
+func enter(before: State, data: Dictionary = {}) -> void:
+	super.enter(before, data)
 	%TextBox.visible = true
 	var options: Array[String] = ["Skill", "Item", "COMP", "Option"]
 	%ActionPanel.visible = true
-	%ActionPanel.query(options)
+	%ActionPanel.query_action(options)
 
-func exit(_after: State, _data: Dictionary = {}) -> void:
+func exit(after: State, data: Dictionary = {}) -> void:
+	super.exit(after, data)
 	%ActionPanel.visible = false
 	%TextBox.visible = false

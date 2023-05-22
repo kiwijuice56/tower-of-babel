@@ -10,9 +10,9 @@ var total_turns: int = 0
 var half_turns: int = 0
 
 func _ready() -> void:
-	initialize_turns(4)
+	initialize(4)
 
-func initialize_turns(initial_turns: int) -> void:
+func initialize(initial_turns: int) -> void:
 	await consume_turns(total_turns)
 	
 	total_turns = initial_turns

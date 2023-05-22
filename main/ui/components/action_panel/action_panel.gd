@@ -12,7 +12,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("y", false):
 		button_pressed.emit("")
 
-func query(options: Array[String], initial_select: int = 0) -> String:
+func query_action(options: Array[String], initial_select: int = 0) -> String:
 	for button in %ButtonContainer.get_children():
 		%ButtonContainer.remove_child(button)
 		button.queue_free()
