@@ -2,6 +2,7 @@ class_name BattleState
 extends State
 
 func input(event: InputEvent) -> void:
+	# DEBUG
 	if event.is_action_pressed("x", false):
 		_on_battle_ended()
 

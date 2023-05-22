@@ -36,6 +36,7 @@ one_shot = true
 
 [node name="ContinueIcon" type="TextureRect" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8

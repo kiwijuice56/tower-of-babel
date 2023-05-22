@@ -4,6 +4,7 @@ extends State
 func input(event: InputEvent) -> void:
 	if event.is_action_pressed("y", false):
 		state_machine.transition_to("DungeonMenu")
+	# DEBUG
 	if event.is_action_pressed("x", false):
 		_on_battle_started()
 

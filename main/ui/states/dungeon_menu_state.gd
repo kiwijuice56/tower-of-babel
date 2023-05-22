@@ -8,12 +8,16 @@ func input(event: InputEvent) -> void:
 
 func enter(before: State, data: Dictionary = {}) -> void:
 	super.enter(before, data)
-	%TextBox.visible = true
-	var options: Array[String] = ["Skill", "Item", "COMP", "Option"]
+	
+	await %TextBox.transition_in()
+	%TextBox.display_text("Your COMP whirred to life.", TextBox.TextSpeed.FAST, false)
+	var options: Array[String] = ["Skill", "Item", "Demon", "Option"]
 	%ActionPanel.visible = true
-	%ActionPanel.query_action(options)
+	var action: String = await %ActionPanel.query_action(options)
+	if action == "":
+		return
 
 func exit(after: State, data: Dictionary = {}) -> void:
 	super.exit(after, data)
 	%ActionPanel.visible = false
-	%TextBox.visible = false
+	await %TextBox.transition_out()

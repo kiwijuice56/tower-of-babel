@@ -1,4 +1,4 @@
-#tower-of-babel
+# tower-of-babel
 The Tower of Babel is a work-in-progress Shin Megami Tensei fangame, created with Godot, Aseprite, and Blender.
 
 ## Code Guidelines
