@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqc7vjeujdmnl"]
+
+[ext_resource type="Texture2D" uid="uid://bh7nukixgef7e" path="res://main/ui/components/status_widget/sprites/drugged.png" id="1_tq1jn"]
+[ext_resource type="Script" path="res://main/ui/components/status_widget/status_widget.gd" id="2_6irg0"]
+
+[node name="StatusWidget" type="TextureRect"]
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("1_tq1jn")
+stretch_mode = 2
+script = ExtResource("2_6irg0")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.2
+autostart = true

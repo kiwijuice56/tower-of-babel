@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://crtahoeokto0x"]
+
+[ext_resource type="Script" path="res://main/ui/components/progress_widget/progress_widget.gd" id="1_ekm4o"]
+[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_th32n"]
+
+[node name="ProgressWidget" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 138.0
+size_flags_vertical = 0
+theme = ExtResource("1_th32n")
+theme_override_constants/separation = 2
+script = ExtResource("1_ekm4o")
+high_color = Color(0.529412, 0.901961, 0.341176, 1)
+low_color = Color(0.0431373, 0.278431, 0.121569, 1)
+
+[node name="Bar" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "[s####]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Number" type="Label" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(21, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.529412, 0.901961, 0.341176, 1)
+theme_override_constants/line_spacing = 0
+text = "999"
+horizontal_alignment = 2

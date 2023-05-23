@@ -1,19 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6fsndh05tb0q"]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_eo7np"]
 [ext_resource type="Script" path="res://main/ui/ui.gd" id="2_b3m3q"]
-[ext_resource type="PackedScene" uid="uid://cvfsxloo2uw0j" path="res://main/ui/components/turn_icon_panel/TurnIconPanel.tscn" id="2_stfuq"]
-[ext_resource type="PackedScene" uid="uid://ch0th57t0ig5s" path="res://main/ui/components/subaction_panel/SubactionPanel.tscn" id="3_l4xte"]
-[ext_resource type="Script" path="res://main/state_machine/state_machine.gd" id="3_oh1md"]
-[ext_resource type="PackedScene" uid="uid://clqtg7frh06o0" path="res://main/ui/components/action_panel/ActionPanel.tscn" id="3_xs0ci"]
-[ext_resource type="Script" path="res://main/ui/states/dungeon_state.gd" id="4_ddejt"]
-[ext_resource type="PackedScene" uid="uid://3042685y44v4" path="res://main/ui/components/text_box/TextBox.tscn" id="4_ltp7j"]
-[ext_resource type="PackedScene" uid="uid://bdvr3vygaik24" path="res://main/ui/components/demon_container/DemonContainer.tscn" id="5_871hj"]
-[ext_resource type="Script" path="res://main/ui/states/battle_state.gd" id="5_wx2cn"]
-[ext_resource type="Script" path="res://main/ui/states/dungeon_menu_state.gd" id="5_xkyup"]
-[ext_resource type="PackedScene" uid="uid://dn78r0yvullx" path="res://main/ui/components/input_help_container/InputHelpContainer.tscn" id="6_b775o"]
-[ext_resource type="Script" path="res://main/ui/states/demon_state.gd" id="6_gwlu1"]
-[ext_resource type="PackedScene" uid="uid://ysq8tbosh80s" path="res://main/ui/components/encounter_radar_box/EncounterRadarBox.tscn" id="10_aaceh"]
+[ext_resource type="PackedScene" path="res://main/ui/components/turn_handler/TurnIconHandler.tscn" id="2_stfuq"]
+[ext_resource type="PackedScene" path="res://main/ui/components/action_handler/ActionHandler.tscn" id="3_l4xte"]
+[ext_resource type="PackedScene" uid="uid://dj4hq5oarr4hs" path="res://main/ui/components/choice_handler/ChoiceHandler.tscn" id="3_xs0ci"]
+[ext_resource type="PackedScene" path="res://main/ui/components/text_handler/TextHandler.tscn" id="4_ltp7j"]
+[ext_resource type="PackedScene" uid="uid://uumbitg7f6cn" path="res://main/ui/components/party_handler/PartyHandler.tscn" id="5_871hj"]
+[ext_resource type="PackedScene" uid="uid://c250djp5xsife" path="res://main/ui/components/input_help_handler/InputHelpHandler.tscn" id="6_b775o"]
+[ext_resource type="PackedScene" path="res://main/ui/components/encounter_radar_handler/EncounterRadarHandler.tscn" id="10_aaceh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ap6a"]
 content_margin_top = 2.0
@@ -31,25 +26,7 @@ size_flags_horizontal = 3
 theme = ExtResource("1_eo7np")
 script = ExtResource("2_b3m3q")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state_owner", "initial_state")]
-unique_name_in_owner = true
-script = ExtResource("3_oh1md")
-state_owner = NodePath("..")
-initial_state = NodePath("Dungeon")
-
-[node name="Dungeon" type="Node" parent="StateMachine"]
-script = ExtResource("4_ddejt")
-
-[node name="DungeonMenu" type="Node" parent="StateMachine"]
-script = ExtResource("5_xkyup")
-
-[node name="Demon" type="Node" parent="StateMachine"]
-script = ExtResource("6_gwlu1")
-
-[node name="Battle" type="Node" parent="StateMachine"]
-script = ExtResource("5_wx2cn")
-
-[node name="MainContainer" type="VBoxContainer" parent="."]
+[node name="MainColumn" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,10 +35,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TurnIconPanelHolder" type="Control" parent="MainContainer"]
+[node name="TurnIconPanelHolder" type="Control" parent="MainColumn"]
 layout_mode = 2
 
-[node name="TurnIconPanel" parent="MainContainer/TurnIconPanelHolder" instance=ExtResource("2_stfuq")]
+[node name="TurnIconPanel" parent="MainColumn/TurnIconPanelHolder" instance=ExtResource("2_stfuq")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -73,48 +50,48 @@ offset_right = 67.0
 offset_bottom = 17.0
 grow_horizontal = 2
 
-[node name="BottomAligner" type="Control" parent="MainContainer"]
+[node name="BottomAligner" type="Control" parent="MainColumn"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="SubActionPanelHolder" type="Control" parent="MainContainer"]
+[node name="SubActionPanelHolder" type="Control" parent="MainColumn"]
 layout_mode = 2
 
-[node name="SubactionPanel" parent="MainContainer/SubActionPanelHolder" instance=ExtResource("3_l4xte")]
+[node name="SubactionPanel" parent="MainColumn/SubActionPanelHolder" instance=ExtResource("3_l4xte")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 offset_left = -200.0
 offset_right = 200.0
 
-[node name="ActionPanelHolder" type="Control" parent="MainContainer"]
+[node name="ActionPanelHolder" type="Control" parent="MainColumn"]
 layout_mode = 2
 
-[node name="ActionPanel" parent="MainContainer/ActionPanelHolder" instance=ExtResource("3_xs0ci")]
+[node name="ActionPanel" parent="MainColumn/ActionPanelHolder" instance=ExtResource("3_xs0ci")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="BottomPanel" type="PanelContainer" parent="MainContainer"]
+[node name="BottomPanel" type="PanelContainer" parent="MainColumn"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_0ap6a")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/BottomPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainColumn/BottomPanel"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 2
 
-[node name="TextBox" parent="MainContainer/BottomPanel/VBoxContainer" instance=ExtResource("4_ltp7j")]
+[node name="TextBox" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("4_ltp7j")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="EncounterRadarBox" parent="MainContainer/BottomPanel/VBoxContainer" instance=ExtResource("10_aaceh")]
+[node name="EncounterRadarBox" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("10_aaceh")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="DemonContainer" parent="MainContainer/BottomPanel/VBoxContainer" instance=ExtResource("5_871hj")]
+[node name="DemonContainer" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("5_871hj")]
 unique_name_in_owner = true
 layout_mode = 2
 

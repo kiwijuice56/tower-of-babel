@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://main/ui/components/progress_widget/ProgressWidget.tscn" id="1_aybeb"]
+[ext_resource type="Script" path="res://main/ui/components/encounter_radar_handler/encounter_radar_handler.gd" id="1_jd8uf"]
+[ext_resource type="Script" path="res://main/ui/components/progress_widget/fluctuating_progress_widget.gd" id="2_j55hf"]
+
+[node name="EncounterRadarhandler" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 18)
+script = ExtResource("1_jd8uf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="DangerBar" parent="MarginContainer" instance=ExtResource("1_aybeb")]
+layout_mode = 2
+script = ExtResource("2_j55hf")
+fluctuate_speed = 6.0
+fluctuate_max = 0.03
+label = "d"
+high_color = Color(1, 0.25098, 0.376471, 1)
+low_color = Color(0.305882, 0, 0.25098, 1)
+segments = 28
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 2
+text = "#######-#################################
+#######-#################################"
