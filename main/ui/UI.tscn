@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://clig0rvnh7q5s"]
+[gd_scene load_steps=16 format=3 uid="uid://c6fsndh05tb0q"]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_eo7np"]
 [ext_resource type="Script" path="res://main/ui/ui.gd" id="2_b3m3q"]
@@ -8,10 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://clqtg7frh06o0" path="res://main/ui/components/action_panel/ActionPanel.tscn" id="3_xs0ci"]
 [ext_resource type="Script" path="res://main/ui/states/dungeon_state.gd" id="4_ddejt"]
 [ext_resource type="PackedScene" uid="uid://3042685y44v4" path="res://main/ui/components/text_box/TextBox.tscn" id="4_ltp7j"]
-[ext_resource type="PackedScene" uid="uid://bja1m1eh86ncm" path="res://main/ui/components/comp_container/CompContainer.tscn" id="5_871hj"]
+[ext_resource type="PackedScene" uid="uid://bdvr3vygaik24" path="res://main/ui/components/demon_container/DemonContainer.tscn" id="5_871hj"]
 [ext_resource type="Script" path="res://main/ui/states/battle_state.gd" id="5_wx2cn"]
 [ext_resource type="Script" path="res://main/ui/states/dungeon_menu_state.gd" id="5_xkyup"]
 [ext_resource type="PackedScene" uid="uid://dn78r0yvullx" path="res://main/ui/components/input_help_container/InputHelpContainer.tscn" id="6_b775o"]
+[ext_resource type="Script" path="res://main/ui/states/demon_state.gd" id="6_gwlu1"]
 [ext_resource type="PackedScene" uid="uid://ysq8tbosh80s" path="res://main/ui/components/encounter_radar_box/EncounterRadarBox.tscn" id="10_aaceh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ap6a"]
@@ -41,6 +42,9 @@ script = ExtResource("4_ddejt")
 
 [node name="DungeonMenu" type="Node" parent="StateMachine"]
 script = ExtResource("5_xkyup")
+
+[node name="Demon" type="Node" parent="StateMachine"]
+script = ExtResource("6_gwlu1")
 
 [node name="Battle" type="Node" parent="StateMachine"]
 script = ExtResource("5_wx2cn")
@@ -110,14 +114,10 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="CompContainer" parent="MainContainer/BottomPanel/VBoxContainer" instance=ExtResource("5_871hj")]
+[node name="DemonContainer" parent="MainContainer/BottomPanel/VBoxContainer" instance=ExtResource("5_871hj")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="InputHelpContainer" parent="." instance=ExtResource("6_b775o")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 2
-anchor_right = 0.0
-offset_right = 126.0
-grow_horizontal = 1
-theme_override_constants/margin_left = 24

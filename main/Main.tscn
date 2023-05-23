@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dhbg084m25sba"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_q7iv8"]
-[ext_resource type="PackedScene" uid="uid://clig0rvnh7q5s" path="res://main/ui/UI.tscn" id="2_3alot"]
+[ext_resource type="PackedScene" uid="uid://c6fsndh05tb0q" path="res://main/ui/UI.tscn" id="2_3alot"]
 [ext_resource type="PackedScene" uid="uid://cdd00aja4g0a0" path="res://main/dungeon/debug/DebugDungeon.tscn" id="2_6nfyl"]
 [ext_resource type="Script" path="res://main/battle/party/party.gd" id="2_eowhd"]
 [ext_resource type="PackedScene" uid="uid://chegfk5hr6hvm" path="res://main/dungeon/player/Player.tscn" id="3_20b0g"]
@@ -41,6 +41,8 @@ script = ExtResource("1_q7iv8")
 script = ExtResource("2_eowhd")
 
 [node name="Eve" parent="PlayerParty" instance=ExtResource("3_ak8v6")]
+
+[node name="Eve2" parent="PlayerParty" instance=ExtResource("3_ak8v6")]
 
 [node name="PlayerInventory" type="Node" parent="."]
 

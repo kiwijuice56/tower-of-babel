@@ -17,9 +17,13 @@ func _ready() -> void:
 
 func _on_ui_dungeon_entered(_data: Dictionary) -> void:
 	walking_enabled = true
+	if tween != null and tween.is_valid():
+		tween.play()
 
 func _on_ui_dungeon_exited(_data: Dictionary) -> void:
 	walking_enabled = false
+	if tween != null and tween.is_running():
+		tween.pause()
 
 func _physics_process(_delta: float):
 	if not walking_enabled or tween != null and tween.is_running():

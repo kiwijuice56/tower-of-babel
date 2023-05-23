@@ -7,3 +7,4 @@ extends Control
 @onready var input_help: InputHelpContainer = %InputHelpContainer
 @onready var text_box: TextBox = %TextBox
 @onready var state_machine: StateMachine = %StateMachine
+

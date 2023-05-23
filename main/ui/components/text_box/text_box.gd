@@ -11,7 +11,7 @@ enum TextSpeed {
 	SLOW = 1,
 }
 
-@export var transition_time: float = 0.05
+@export var transition_time: float = 0.04
 @export var speed_up: float = 3.0
 
 var seconds_per_character: float = 0.03
@@ -65,15 +65,26 @@ func display_text(text: String, speed: int, accepting_input: bool) -> void:
 		set_process_input(false)
 		%ContinueIcon.visible = false
 
+func clear() -> void:
+	%Label.visible_characters = 0
+
 func transition_in() -> void:
-	visible = true
+	%Timer.stop()
+	
+	%Label.visible_characters = 0
 	%Label.custom_minimum_size.y = INITIAL_HEIGHT
+	
+	visible = true
+	
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(%Label, "custom_minimum_size:y", FINAL_HEIGHT, transition_time)
 	await tween.finished
 
 func transition_out() -> void:
+	%Timer.stop()
+	
 	%Label.custom_minimum_size.y = FINAL_HEIGHT
+	
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(%Label, "custom_minimum_size:y", INITIAL_HEIGHT, transition_time)
 	await tween.finished

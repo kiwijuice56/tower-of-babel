@@ -1,23 +1,33 @@
 class_name DungeonMenuState
 extends State
 
-func input(event: InputEvent) -> void:
-	if event.is_action_pressed("y", false):
-		%ActionPanel.cancel()
-		state_machine.transition_to("Dungeon")
-
 func enter(before: State, data: Dictionary = {}) -> void:
 	super.enter(before, data)
 	
-	await %TextBox.transition_in()
-	%TextBox.display_text("Your COMP whirred to life.", TextBox.TextSpeed.FAST, false)
+	CommonReference.ui.input_help.append_instructions({"b" : "back"})
+	
+	if before is DungeonState:
+		await %TextBox.transition_in()
+		%TextBox.display_text("Your COMP whirred to life.", TextBox.TextSpeed.FAST, false)
+	else:
+		%TextBox.display_text("Your COMP is humming steadily.", TextBox.TextSpeed.FAST, false)
+	
+	var initial_select: int = 0
+	if before is DemonState:
+		initial_select = 2
+	
 	var options: Array[String] = ["Skill", "Item", "Demon", "Option"]
-	%ActionPanel.visible = true
-	var action: String = await %ActionPanel.query_action(options)
-	if action == "":
-		return
+	var action: String = await %ActionPanel.query_action(options, true, initial_select)
+	
+	match action:
+		"": 
+			state_machine.transition_to("Dungeon")
+		"Demon":
+			state_machine.transition_to("Demon")
 
 func exit(after: State, data: Dictionary = {}) -> void:
 	super.exit(after, data)
-	%ActionPanel.visible = false
-	await %TextBox.transition_out()
+	if after is DungeonState:
+		await %TextBox.transition_out()
+	CommonReference.ui.input_help.remove_instructions({"b" : "back"})
+
