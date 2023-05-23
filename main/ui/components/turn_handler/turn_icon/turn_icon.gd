@@ -1,4 +1,4 @@
-class_name TurnUnit
+class_name TurnIcon
 extends TextureRect
 
 const FINAL_WIDTH: int = 12

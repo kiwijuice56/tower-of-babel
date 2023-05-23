@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfnng81hfirgn"
-path="res://.godot/imported/flash1.png-04cd38fdbd063afd77e874b52e364972.ctex"
+uid="uid://dssovmfgwpg85"
+path="res://.godot/imported/smt_ii_demon_b.png-fc527aa3319ad7abd06068aa8eeb98b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ui/components/turn_handler/turn_unit/sprites/flash1.png"
-dest_files=["res://.godot/imported/flash1.png-04cd38fdbd063afd77e874b52e364972.ctex"]
+source_file="res://main/combat/fighter/smt_ii_demon_b.png"
+dest_files=["res://.godot/imported/smt_ii_demon_b.png-fc527aa3319ad7abd06068aa8eeb98b8.ctex"]
 
 [params]
 

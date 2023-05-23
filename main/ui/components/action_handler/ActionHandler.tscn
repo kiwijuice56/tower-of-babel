@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_pv32p"]
-[ext_resource type="PackedScene" path="res://main/ui/components/action_handler/action_button/ActionButton.tscn" id="1_th8ah"]
+[ext_resource type="PackedScene" uid="uid://lpy0jlu04j1s" path="res://main/ui/components/action_handler/action_button/ActionButton.tscn" id="1_th8ah"]
 [ext_resource type="Script" path="res://main/ui/components/action_handler/action_handler.gd" id="2_257yh"]
 [ext_resource type="Shader" path="res://main/shader/hologram.gdshader" id="3_mjer3"]
 [ext_resource type="Texture2D" uid="uid://brhy6wjk40cqb" path="res://main/shader/hologram_lines.png" id="4_i56vs"]
-[ext_resource type="Texture2D" uid="uid://dl0wi63d4bjqj" path="res://main/battle/fighter/eve/smt_ii_heroine.png" id="5_rbocm"]
+[ext_resource type="Texture2D" uid="uid://dl0wi63d4bjqj" path="res://main/combat/fighter/eve/smt_ii_heroine.png" id="5_rbocm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nepuo"]
 shader = ExtResource("3_mjer3")

@@ -10,11 +10,6 @@ var walking_enabled: bool = true
 
 signal stepped
 
-func _ready() -> void:
-	await CommonReference.ui.ready
-	CommonReference.ui.state_machine.get_node("Dungeon").entered.connect(_on_ui_dungeon_entered)
-	CommonReference.ui.state_machine.get_node("Dungeon").exited.connect(_on_ui_dungeon_exited)
-
 func _on_ui_dungeon_entered(_data: Dictionary) -> void:
 	walking_enabled = true
 	if tween != null and tween.is_valid():

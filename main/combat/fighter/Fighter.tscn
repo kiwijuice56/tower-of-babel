@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://28mersviecut"]
+
+[ext_resource type="Script" path="res://main/combat/fighter/fighter.gd" id="2_118qc"]
+
+[node name="Fighter" type="Sprite2D"]
+script = ExtResource("2_118qc")
+
+[node name="BattleSkills" type="Node" parent="."]
+
+[node name="ConversationSkills" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

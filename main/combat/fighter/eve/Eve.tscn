@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://main/combat/fighter/Fighter.tscn" id="1_hp7f4"]
+[ext_resource type="Texture2D" uid="uid://dl0wi63d4bjqj" path="res://main/combat/fighter/eve/smt_ii_heroine.png" id="2_iublh"]
+
+[node name="Eve" instance=ExtResource("1_hp7f4")]
+texture = ExtResource("2_iublh")
+level = 1
+max_health = 30
+max_stamina = 15
+strength = 4
+vitality = 4
+agility = 4
+luck = 4
+intelligence = 4
+weak = 2
+nullify = 32
+display_name = "Eve"
+age = 1
+gender = 1

@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dab2a0nafh4qq"
-path="res://.godot/imported/press_turn_icon2.png-c5dbd5703f2271ef09d33c5d27d6e7fa.ctex"
+uid="uid://c7qjsa7acqeyw"
+path.s3tc="res://.godot/imported/smt_ii_demon_a.png-cd5cfd98bc5f1e6fc90a80315faa28f7.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://main/ui/components/turn_handler/turn_unit/sprites/press_turn_icon2.png"
-dest_files=["res://.godot/imported/press_turn_icon2.png-c5dbd5703f2271ef09d33c5d27d6e7fa.ctex"]
+source_file="res://main/combat/fighter/smt_ii_demon_a.png"
+dest_files=["res://.godot/imported/smt_ii_demon_a.png-cd5cfd98bc5f1e6fc90a80315faa28f7.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

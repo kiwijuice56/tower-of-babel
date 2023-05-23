@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhbg084m25sba"]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_q7iv8"]
-[ext_resource type="PackedScene" uid="uid://c6fsndh05tb0q" path="res://main/ui/UI.tscn" id="2_3alot"]
+[ext_resource type="PackedScene" path="res://main/ui/UI.tscn" id="2_3alot"]
 [ext_resource type="PackedScene" uid="uid://cdd00aja4g0a0" path="res://main/dungeon/debug/DebugDungeon.tscn" id="2_6nfyl"]
-[ext_resource type="Script" path="res://main/battle/party/party.gd" id="2_eowhd"]
+[ext_resource type="Script" path="res://main/combat/party/party.gd" id="2_eowhd"]
 [ext_resource type="PackedScene" uid="uid://chegfk5hr6hvm" path="res://main/dungeon/player/Player.tscn" id="3_20b0g"]
-[ext_resource type="PackedScene" uid="uid://cbrs5f54834bb" path="res://main/battle/fighter/eve/Eve.tscn" id="3_ak8v6"]
+[ext_resource type="PackedScene" path="res://main/combat/fighter/eve/Eve.tscn" id="3_ak8v6"]
 [ext_resource type="Shader" path="res://main/shader/crt.gdshader" id="5_m5sia"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wjnvb"]

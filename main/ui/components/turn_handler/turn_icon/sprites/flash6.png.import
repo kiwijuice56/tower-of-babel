@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://71w47vxepl70"
-path="res://.godot/imported/flash2.png-d2dcf09741f09f0637df7803a293372b.ctex"
+uid="uid://ww5oms2yx2lq"
+path="res://.godot/imported/flash6.png-9845ed7247a7b037f53ce8f63fd8f141.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ui/components/turn_handler/turn_unit/sprites/flash2.png"
-dest_files=["res://.godot/imported/flash2.png-d2dcf09741f09f0637df7803a293372b.ctex"]
+source_file="res://main/ui/components/turn_handler/turn_icon/sprites/flash6.png"
+dest_files=["res://.godot/imported/flash6.png-9845ed7247a7b037f53ce8f63fd8f141.ctex"]
 
 [params]
 

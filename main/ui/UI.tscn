@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://c7kpt1f47em18"]
 
 [ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_eo7np"]
 [ext_resource type="Script" path="res://main/ui/ui.gd" id="2_b3m3q"]
-[ext_resource type="PackedScene" path="res://main/ui/components/turn_handler/TurnIconHandler.tscn" id="2_stfuq"]
+[ext_resource type="PackedScene" uid="uid://bqb8h52k76jya" path="res://main/ui/components/turn_handler/TurnHandler.tscn" id="2_stfuq"]
 [ext_resource type="PackedScene" path="res://main/ui/components/action_handler/ActionHandler.tscn" id="3_l4xte"]
 [ext_resource type="PackedScene" uid="uid://dj4hq5oarr4hs" path="res://main/ui/components/choice_handler/ChoiceHandler.tscn" id="3_xs0ci"]
 [ext_resource type="PackedScene" path="res://main/ui/components/text_handler/TextHandler.tscn" id="4_ltp7j"]
@@ -35,10 +35,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TurnIconPanelHolder" type="Control" parent="MainColumn"]
+[node name="TurnHandlerControl" type="Control" parent="MainColumn"]
 layout_mode = 2
 
-[node name="TurnIconPanel" parent="MainColumn/TurnIconPanelHolder" instance=ExtResource("2_stfuq")]
+[node name="TurnHandler" parent="MainColumn/TurnHandlerControl" instance=ExtResource("2_stfuq")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -50,24 +50,24 @@ offset_right = 67.0
 offset_bottom = 17.0
 grow_horizontal = 2
 
-[node name="BottomAligner" type="Control" parent="MainColumn"]
+[node name="BottomAlignControl" type="Control" parent="MainColumn"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="SubActionPanelHolder" type="Control" parent="MainColumn"]
+[node name="ActionHandlerControl" type="Control" parent="MainColumn"]
 layout_mode = 2
 
-[node name="SubactionPanel" parent="MainColumn/SubActionPanelHolder" instance=ExtResource("3_l4xte")]
+[node name="ActionHandler" parent="MainColumn/ActionHandlerControl" instance=ExtResource("3_l4xte")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 offset_left = -200.0
 offset_right = 200.0
 
-[node name="ActionPanelHolder" type="Control" parent="MainColumn"]
+[node name="ChoiceHandlerControl" type="Control" parent="MainColumn"]
 layout_mode = 2
 
-[node name="ActionPanel" parent="MainColumn/ActionPanelHolder" instance=ExtResource("3_xs0ci")]
+[node name="ChoiceHandler" parent="MainColumn/ChoiceHandlerControl" instance=ExtResource("3_xs0ci")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -82,19 +82,19 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 2
 
-[node name="TextBox" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("4_ltp7j")]
+[node name="TextHandler" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("4_ltp7j")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="EncounterRadarBox" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("10_aaceh")]
+[node name="EncounterRadarHandler" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("10_aaceh")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="DemonContainer" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("5_871hj")]
+[node name="PartyHandler" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("5_871hj")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="InputHelpContainer" parent="." instance=ExtResource("6_b775o")]
+[node name="InputHelpHandler" parent="." instance=ExtResource("6_b775o")]
 unique_name_in_owner = true
 layout_mode = 1

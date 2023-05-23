@@ -4,7 +4,7 @@ extends HBoxContainer
 
 # All methods assume a valid query (removing only when there is > 1 turn, etc.)
 
-const ICON_SCENE: PackedScene = preload("res://main/ui/components/turn_handler/turn_unit/TurnUnit.tscn")
+const ICON_SCENE: PackedScene = preload("res://main/ui/components/turn_handler/turn_icon/TurnIcon.tscn")
 
 var total_turns: int = 0
 var half_turns: int = 0
@@ -20,9 +20,9 @@ func initialize(initial_turns: int) -> void:
 	
 	var parallel: ParallelCoroutine = ParallelCoroutine.new()
 	for turn in total_turns:
-		var new_icon: TurnUnit = ICON_SCENE.instantiate()
+		var new_icon: TurnIcon = ICON_SCENE.instantiate()
 		%IconContainer.add_child(new_icon)
-		parallel.append(new_icon, [], "add", "added")
+		parallel.append(new_icon, [], "transition_in", "completed")
 	
 	parallel.run_all()
 	await parallel.completed
@@ -30,7 +30,7 @@ func initialize(initial_turns: int) -> void:
 func halve_turns(to_halve: int) -> void:
 	var parallel: ParallelCoroutine = ParallelCoroutine.new()
 	for turn in range(total_turns - to_halve - half_turns, total_turns - half_turns):
-		parallel.append(%IconContainer.get_child(turn), [], "flash", "flashed")
+		parallel.append(%IconContainer.get_child(turn), [], "flash", "completed")
 	
 	half_turns += to_halve
 	
@@ -40,7 +40,7 @@ func halve_turns(to_halve: int) -> void:
 func consume_turns(to_consume: int) -> void:
 	var parallel: ParallelCoroutine = ParallelCoroutine.new()
 	for turn in range(total_turns - to_consume, total_turns):
-		parallel.append(%IconContainer.get_child(turn), [], "remove", "removed")
+		parallel.append(%IconContainer.get_child(turn), [], "transition_out", "completed")
 	
 	half_turns = max(0, half_turns - to_consume)
 	total_turns -= to_consume

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dssovmfgwpg85"
-path="res://.godot/imported/smt_ii_demon_b.png-5a27eb79ab0d39c61f0cd49a9965d4d1.ctex"
+uid="uid://36sns554hr4o"
+path="res://.godot/imported/press_turn_icon4.png-e1b6d67f9293c2df9bab47e73860de8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/battle/fighter/smt_ii_demon_b.png"
-dest_files=["res://.godot/imported/smt_ii_demon_b.png-5a27eb79ab0d39c61f0cd49a9965d4d1.ctex"]
+source_file="res://main/ui/components/turn_handler/turn_icon/sprites/press_turn_icon4.png"
+dest_files=["res://.godot/imported/press_turn_icon4.png-e1b6d67f9293c2df9bab47e73860de8e.ctex"]
 
 [params]
 

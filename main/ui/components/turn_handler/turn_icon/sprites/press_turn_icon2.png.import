@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chg7qja4y8iqa"
-path="res://.godot/imported/flash4.png-f8d613d1631c6b849fd80967beb48b15.ctex"
+uid="uid://dab2a0nafh4qq"
+path="res://.godot/imported/press_turn_icon2.png-316210430c23e2ae4044bcc67bd1d75e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ui/components/turn_handler/turn_unit/sprites/flash4.png"
-dest_files=["res://.godot/imported/flash4.png-f8d613d1631c6b849fd80967beb48b15.ctex"]
+source_file="res://main/ui/components/turn_handler/turn_icon/sprites/press_turn_icon2.png"
+dest_files=["res://.godot/imported/press_turn_icon2.png-316210430c23e2ae4044bcc67bd1d75e.ctex"]
 
 [params]
 
