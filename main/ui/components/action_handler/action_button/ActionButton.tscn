@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://lpy0jlu04j1s"]
+[gd_scene load_steps=4 format=3 uid="uid://bi0of34x54tuj"]
 
-[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_c7i7v"]
-[ext_resource type="PackedScene" path="res://main/ui/components/element_icon/ElementIcon.tscn" id="2_6aftj"]
+[ext_resource type="Theme" uid="uid://0f7l5qrjhqko" path="res://main/ui/theme/main_theme.tres" id="1_c7i7v"]
+[ext_resource type="PackedScene" uid="uid://bas8dro3pk1ia" path="res://main/ui/components/element_icon/ElementIcon.tscn" id="2_6aftj"]
 [ext_resource type="Script" path="res://main/ui/components/action_handler/action_button/action_button.gd" id="2_psr0f"]
 
 [node name="ActionButton" type="Button"]
@@ -10,6 +10,8 @@ offset_right = 106.0
 offset_bottom = 14.0
 theme = ExtResource("1_c7i7v")
 script = ExtResource("2_psr0f")
+hp_color = Color(1, 1, 1, 1)
+sp_color = Color(1, 0.25098, 0.376471, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -32,11 +34,14 @@ layout_mode = 2
 [node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Megidolaon"
+theme_override_constants/line_spacing = 1
+text = "Agi"
 
 [node name="CostLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_constants/line_spacing = 1
 text = "999m"
 horizontal_alignment = 2
+vertical_alignment = 1

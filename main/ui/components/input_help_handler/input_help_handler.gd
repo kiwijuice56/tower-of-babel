@@ -3,8 +3,8 @@ extends PanelContainer
 # Displays possible actions and their associated keys/buttons at the bottom of the screen
 
 const SPRITES: Dictionary = {
-	"left_right": preload("res://main/ui/components/input_help_handler/sprites/left_right_arrows.png"),
-	"up_down": preload("res://main/ui/components/input_help_handler/sprites/up_down_arrows.png")
+	"_left_right": preload("res://main/ui/components/input_help_handler/sprites/left_right_arrows.png"),
+	"_up_down": preload("res://main/ui/components/input_help_handler/sprites/up_down_arrows.png")
 }
 
 @export var key_color: Color
@@ -24,7 +24,9 @@ func remove_instructions(input: Dictionary) -> void:
 func update_text() -> void:
 	clear()
 	
-	for action in all_input:
+	var sorted_input: Array = all_input.keys()
+	sorted_input.sort()
+	for action in sorted_input:
 		var label: RichTextLabel = RichTextLabel.new()
 		label.fit_content = true
 		label.autowrap_mode = TextServer.AUTOWRAP_OFF

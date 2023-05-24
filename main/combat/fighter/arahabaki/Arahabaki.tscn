@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyof1q6uvwsah"]
+
+[ext_resource type="PackedScene" uid="uid://28mersviecut" path="res://main/combat/fighter/Fighter.tscn" id="1_xstkd"]
+[ext_resource type="Texture2D" uid="uid://cmd0qc02lsrlk" path="res://main/combat/fighter/arahabaki/arahabaki.png" id="2_5cm1p"]
+[ext_resource type="PackedScene" uid="uid://brcasxcr218cb" path="res://main/combat/action/Action.tscn" id="3_piso6"]
+
+[node name="Arahabaki" instance=ExtResource("1_xstkd")]
+texture = ExtResource("2_5cm1p")
+level = 8
+max_health = 70
+max_stamina = 24
+strength = 4
+vitality = 4
+agility = 4
+luck = 4
+intelligence = 8
+weak = 58
+resist = 4
+nullify = 1
+display_name = "Arahabaki"
+
+[node name="Action" parent="Skill" index="0" instance=ExtResource("3_piso6")]
+display_name = "Bufula"
+element = 8
+flavor_text = "Spawn ice crystals within the blood of an aggressor."
+battle_ready = true
+cost_type = 2
+cost = 8
+
+[node name="Action2" parent="Skill" index="1" instance=ExtResource("3_piso6")]
+display_name = "Tarukaja"
+element = 256
+flavor_text = "Increase the adrenaline levels within your party."
+battle_ready = true
+cost_type = 2
+cost = 16

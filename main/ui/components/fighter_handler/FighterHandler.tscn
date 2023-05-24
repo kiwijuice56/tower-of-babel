@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://xqv6p7gdeh44"]
 
-[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_2shtt"]
+[ext_resource type="Theme" uid="uid://0f7l5qrjhqko" path="res://main/ui/theme/main_theme.tres" id="1_2shtt"]
 [ext_resource type="Script" path="res://main/ui/components/fighter_handler/fighter_handler.gd" id="2_uoii7"]
-[ext_resource type="PackedScene" path="res://main/ui/components/status_widget/StatusWidget.tscn" id="3_5lmrl"]
-[ext_resource type="PackedScene" uid="uid://crtahoeokto0x" path="res://main/ui/components/progress_widget/ProgressWidget.tscn" id="4_jnour"]
-[ext_resource type="PackedScene" uid="uid://cmtm6h1e2tcea" path="res://main/ui/components/buff_handler/BuffHandler.tscn" id="5_etvma"]
+[ext_resource type="PackedScene" uid="uid://bqc7vjeujdmnl" path="res://main/ui/components/status_widget/StatusWidget.tscn" id="3_5lmrl"]
+[ext_resource type="PackedScene" path="res://main/ui/components/progress_widget/ProgressWidget.tscn" id="4_jnour"]
+[ext_resource type="PackedScene" path="res://main/ui/components/buff_handler/BuffHandler.tscn" id="5_etvma"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkl50"]
 

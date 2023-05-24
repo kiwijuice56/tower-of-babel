@@ -7,6 +7,14 @@ extends Button
 
 var action: Action
 
+func _ready() -> void:
+	set_focus_neighbor(SIDE_LEFT, ".")
+	set_focus_neighbor(SIDE_RIGHT, ".")
+	focus_entered.connect(_on_focus_entered)
+
+func _on_focus_entered() -> void:
+	CommonReference.ui.text_handler.display_text(action.get_description(), TextHandler.TextSpeed.FAST, false)
+
 func initialize(action: Action) -> void:
 	self.action = action
 	
@@ -15,12 +23,12 @@ func initialize(action: Action) -> void:
 		action.CostType.NONE:
 			%CostLabel.visible = false
 		action.CostType.HP:
-			%CostLabel.add_color_override("font_color", hp_color)
+			%CostLabel.set("theme_override_colors/font_color", hp_color)
 			%CostLabel.text += "h"
 		action.CostType.SP:
-			%CostLabel.add_color_override("font_color", sp_color)
+			%CostLabel.set("theme_override_colors/font_color", sp_color)
 			%CostLabel.text += "s"
 	if action.element == action.Element.NONE:
 		%AffinityIcon.visible = false
-	%AffinityIcon.set_element(action.element)
+	%AffinityIcon.initialize(action.element)
 	%NameLabel.text = action.display_name

@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://uumbitg7f6cn"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_5j75e"]
+[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/theme/main_theme.tres" id="1_5j75e"]
 [ext_resource type="Script" path="res://main/ui/components/party_handler/party_handler.gd" id="2_dmrvx"]
 [ext_resource type="PackedScene" path="res://main/ui/components/fighter_handler/FighterHandler.tscn" id="2_qrjmm"]
 

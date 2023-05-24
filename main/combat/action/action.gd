@@ -16,7 +16,7 @@ enum TargetCount {
 # Whether this action will affect the same or opposing party (ex: healing vs. attacking) 
 enum TargetType {
 	# SELF_ONLY is for actions such as focusing/charging
-	NONE, SAME, OTHER, SELF_ONLY
+	NONE, SAME, SAME_INACTIVE, OTHER, SELF_ONLY
 }
 
 enum CostType {
@@ -25,21 +25,22 @@ enum CostType {
 
 # Powers of 2 are used in order to represent combinations of elements in a single integer
 enum Element {
-	NONE = 0,
-	PHYSICAL = 1,
-	FIRE = 2,
-	ICE = 4,
-	ELECTRICITY = 8,
-	EARTH = 16,
-	CELESTIAL = 32,
-	HEALING = 64,
-	SUPPORT = 128,
-	ALMIGHTY = 256,
+	NONE = 1,
+	PHYSICAL = 2,
+	FIRE = 4,
+	ICE = 8,
+	ELECTRICITY = 16,
+	EARTH = 32,
+	CELESTIAL = 64,
+	HEALING = 128,
+	SUPPORT = 256,
+	ALMIGHTY = 512,
 }
 
 @export_group("Identity")
 @export var display_name: String
 @export var element: Element
+@export_multiline var flavor_text: String
 
 @export_group("Targeting")
 @export var target_type: TargetType
@@ -55,3 +56,6 @@ var action_owner: Fighter
 
 func commit() -> void:
 	pass
+
+func get_description() -> String:
+	return flavor_text

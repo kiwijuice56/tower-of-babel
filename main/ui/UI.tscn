@@ -1,21 +1,65 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7kpt1f47em18"]
+[gd_scene load_steps=15 format=3 uid="uid://db07mlwma2cyo"]
 
-[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_eo7np"]
+[ext_resource type="Theme" uid="uid://0f7l5qrjhqko" path="res://main/ui/theme/main_theme.tres" id="1_eo7np"]
 [ext_resource type="Script" path="res://main/ui/ui.gd" id="2_b3m3q"]
-[ext_resource type="PackedScene" uid="uid://bqb8h52k76jya" path="res://main/ui/components/turn_handler/TurnHandler.tscn" id="2_stfuq"]
-[ext_resource type="PackedScene" path="res://main/ui/components/action_handler/ActionHandler.tscn" id="3_l4xte"]
-[ext_resource type="PackedScene" uid="uid://dj4hq5oarr4hs" path="res://main/ui/components/choice_handler/ChoiceHandler.tscn" id="3_xs0ci"]
-[ext_resource type="PackedScene" path="res://main/ui/components/text_handler/TextHandler.tscn" id="4_ltp7j"]
-[ext_resource type="PackedScene" uid="uid://uumbitg7f6cn" path="res://main/ui/components/party_handler/PartyHandler.tscn" id="5_871hj"]
-[ext_resource type="PackedScene" uid="uid://c250djp5xsife" path="res://main/ui/components/input_help_handler/InputHelpHandler.tscn" id="6_b775o"]
+[ext_resource type="PackedScene" path="res://main/ui/components/turn_handler/TurnHandler.tscn" id="2_stfuq"]
+[ext_resource type="PackedScene" uid="uid://bs2dehab7m67h" path="res://main/ui/components/action_handler/ActionHandler.tscn" id="3_l4xte"]
+[ext_resource type="PackedScene" path="res://main/ui/components/choice_handler/ChoiceHandler.tscn" id="3_xs0ci"]
+[ext_resource type="PackedScene" uid="uid://dkfp5cfjw7pho" path="res://main/ui/components/text_handler/TextHandler.tscn" id="4_ltp7j"]
+[ext_resource type="PackedScene" path="res://main/ui/components/party_handler/PartyHandler.tscn" id="5_871hj"]
+[ext_resource type="PackedScene" path="res://main/ui/components/input_help_handler/InputHelpHandler.tscn" id="6_b775o"]
 [ext_resource type="PackedScene" path="res://main/ui/components/encounter_radar_handler/EncounterRadarHandler.tscn" id="10_aaceh"]
+[ext_resource type="Shader" path="res://main/ui/shader/crt.gdshader" id="10_e7pa6"]
+[ext_resource type="Script" path="res://main/helper/sound_effect_player.gd" id="11_fg3l3"]
+[ext_resource type="AudioStream" uid="uid://b7mq37lum7qwl" path="res://main/ui/sound/comp.mp3" id="12_3l1dj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ap6a"]
 content_margin_top = 2.0
 content_margin_bottom = 14.0
 bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
 
-[node name="UI" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjnvb"]
+shader = ExtResource("10_e7pa6")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.03
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.03
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.01
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.02
+shader_parameter/aberration = 0.00700005
+shader_parameter/brightness = 1.3
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.2
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.2
+shader_parameter/vignette_opacity = 0.5
+
+[node name="UI" type="Node"]
+script = ExtResource("2_b3m3q")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(427, 240)
+render_target_update_mode = 4
+
+[node name="UIRoot" type="Control" parent="SubViewportContainer/SubViewport"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,9 +68,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_eo7np")
-script = ExtResource("2_b3m3q")
 
-[node name="MainColumn" type="VBoxContainer" parent="."]
+[node name="MainColumn" type="VBoxContainer" parent="SubViewportContainer/SubViewport/UIRoot"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,10 +78,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TurnHandlerControl" type="Control" parent="MainColumn"]
+[node name="TurnHandlerControl" type="Control" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn"]
 layout_mode = 2
 
-[node name="TurnHandler" parent="MainColumn/TurnHandlerControl" instance=ExtResource("2_stfuq")]
+[node name="TurnHandler" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn/TurnHandlerControl" instance=ExtResource("2_stfuq")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -50,51 +93,67 @@ offset_right = 67.0
 offset_bottom = 17.0
 grow_horizontal = 2
 
-[node name="BottomAlignControl" type="Control" parent="MainColumn"]
+[node name="BottomAlignControl" type="Control" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="ActionHandlerControl" type="Control" parent="MainColumn"]
+[node name="ActionHandlerControl" type="Control" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn"]
 layout_mode = 2
 
-[node name="ActionHandler" parent="MainColumn/ActionHandlerControl" instance=ExtResource("3_l4xte")]
+[node name="ActionHandler" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn/ActionHandlerControl" instance=ExtResource("3_l4xte")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 offset_left = -200.0
 offset_right = 200.0
 
-[node name="ChoiceHandlerControl" type="Control" parent="MainColumn"]
+[node name="ChoiceHandlerControl" type="Control" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn"]
 layout_mode = 2
 
-[node name="ChoiceHandler" parent="MainColumn/ChoiceHandlerControl" instance=ExtResource("3_xs0ci")]
+[node name="ChoiceHandler" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn/ChoiceHandlerControl" instance=ExtResource("3_xs0ci")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="BottomPanel" type="PanelContainer" parent="MainColumn"]
+[node name="BottomPanel" type="PanelContainer" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_0ap6a")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainColumn/BottomPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn/BottomPanel"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 2
 
-[node name="TextHandler" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("4_ltp7j")]
+[node name="TextHandler" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("4_ltp7j")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="EncounterRadarHandler" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("10_aaceh")]
+[node name="EncounterRadarHandler" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("10_aaceh")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PartyHandler" parent="MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("5_871hj")]
+[node name="PartyHandler" parent="SubViewportContainer/SubViewport/UIRoot/MainColumn/BottomPanel/VBoxContainer" instance=ExtResource("5_871hj")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="InputHelpHandler" parent="." instance=ExtResource("6_b775o")]
+[node name="InputHelpHandler" parent="SubViewportContainer/SubViewport/UIRoot" instance=ExtResource("6_b775o")]
 unique_name_in_owner = true
 layout_mode = 1
+
+[node name="CrtFilter" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wjnvb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IdleSoundEffectPlayer" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("11_fg3l3")
+stream = ExtResource("12_3l1dj")
+volume_db = -16.0
+gradual_time = 0.8
+random_offset = true

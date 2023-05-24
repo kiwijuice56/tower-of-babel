@@ -5,8 +5,10 @@
 [node name="Fighter" type="Sprite2D"]
 script = ExtResource("2_118qc")
 
-[node name="BattleSkills" type="Node" parent="."]
+[node name="Skill" type="Node" parent="."]
 
-[node name="ConversationSkills" type="Node" parent="."]
+[node name="Tactic" type="Node" parent="."]
+
+[node name="Control" type="Node" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

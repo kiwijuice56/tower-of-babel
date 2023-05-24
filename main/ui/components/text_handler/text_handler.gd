@@ -14,9 +14,10 @@ enum TextSpeed {
 @export var transition_time: float = 0.04
 @export var speed_up: float = 3.0
 
-var seconds_per_character: float = 0.03
+var seconds_per_character: float = 0.02
 var speed_up_enabled: bool = false
 
+signal completed
 signal accepted
 signal text_displayed
 
@@ -79,6 +80,8 @@ func transition_in() -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(%Label, "custom_minimum_size:y", FINAL_HEIGHT, transition_time)
 	await tween.finished
+	
+	completed.emit()
 
 func transition_out() -> void:
 	%Timer.stop()
@@ -90,3 +93,5 @@ func transition_out() -> void:
 	await tween.finished
 	visible = false
 	%Label.visible_characters = 0
+	
+	completed.emit()

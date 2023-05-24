@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://kfllpwir432r"]
+
+[ext_resource type="Shader" path="res://main/ui/shader/crt.gdshader" id="1_akak4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjnvb"]
+shader = ExtResource("1_akak4")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.03
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.03
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.02
+shader_parameter/aberration = 0.00700005
+shader_parameter/brightness = 1.3
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.2
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.2
+shader_parameter/vignette_opacity = 0.5
+
+[node name="CrtFilter" type="ColorRect"]
+material = SubResource("ShaderMaterial_wjnvb")
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

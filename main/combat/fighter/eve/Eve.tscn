@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://bwflgkdis3icn"]
 
-[ext_resource type="PackedScene" path="res://main/combat/fighter/Fighter.tscn" id="1_hp7f4"]
+[ext_resource type="PackedScene" uid="uid://28mersviecut" path="res://main/combat/fighter/Fighter.tscn" id="1_hp7f4"]
 [ext_resource type="Texture2D" uid="uid://dl0wi63d4bjqj" path="res://main/combat/fighter/eve/smt_ii_heroine.png" id="2_iublh"]
+[ext_resource type="PackedScene" uid="uid://cduvldj3yvhrd" path="res://main/combat/action/skill/Slash.tscn" id="3_8u0n7"]
 
 [node name="Eve" instance=ExtResource("1_hp7f4")]
 texture = ExtResource("2_iublh")
@@ -18,3 +19,22 @@ nullify = 32
 display_name = "Eve"
 age = 1
 gender = 1
+
+[node name="Slash" parent="Skill" index="0" instance=ExtResource("3_8u0n7")]
+element = 2
+flavor_text = "Slice into the flesh of an aggressor."
+
+[node name="Agilao" parent="Skill" index="1" instance=ExtResource("3_8u0n7")]
+display_name = "Agilao"
+element = 4
+flavor_text = "Burn organic matter into a crisp."
+cost_type = 2
+cost = 8
+
+[node name="Megido" parent="Skill" index="2" instance=ExtResource("3_8u0n7")]
+display_name = "Megido"
+element = 512
+flavor_text = "Start a localized nuclear chain reaction."
+target_count = 2
+cost_type = 2
+cost = 32

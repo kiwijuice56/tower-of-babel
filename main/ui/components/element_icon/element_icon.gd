@@ -17,4 +17,4 @@ const SPRITES: Dictionary = {
 }
 
 func initialize(element: int) -> void:
-	texture = SPRITES[int(pow(2, element))] 
+	texture = SPRITES[element]

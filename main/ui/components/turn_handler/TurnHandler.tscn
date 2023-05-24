@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqb8h52k76jya"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://main/ui/components/turn_handler/turn_handler.gd" id="1_rddgv"]
-[ext_resource type="Texture2D" uid="uid://x7wjvyna12ml" path="res://main/ui/_theme/panel/triangle_corner.png" id="2_f0p5v"]
+[ext_resource type="Texture2D" uid="uid://x7wjvyna12ml" path="res://main/ui/theme/panel/triangle_corner.png" id="2_f0p5v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixcsv"]
 content_margin_left = 10.0

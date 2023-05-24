@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj4hq5oarr4hs"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Texture2D" uid="uid://x7wjvyna12ml" path="res://main/ui/_theme/panel/triangle_corner.png" id="1_g37vp"]
-[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_ysm2p"]
+[ext_resource type="Texture2D" uid="uid://x7wjvyna12ml" path="res://main/ui/theme/panel/triangle_corner.png" id="1_g37vp"]
+[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/theme/main_theme.tres" id="1_ysm2p"]
 [ext_resource type="Script" path="res://main/ui/components/choice_handler/choice_handler.gd" id="2_5wy08"]
 [ext_resource type="PackedScene" uid="uid://d08fdqmpty7rh" path="res://main/ui/components/choice_handler/choice_button/ChoiceButton.tscn" id="4_aqaso"]
 

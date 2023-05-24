@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://brcasxcr218cb"]
 
 [ext_resource type="Script" path="res://main/combat/action/action.gd" id="1_e5n8q"]
 

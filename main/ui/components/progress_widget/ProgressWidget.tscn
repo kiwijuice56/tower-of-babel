@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://crtahoeokto0x"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://main/ui/components/progress_widget/progress_widget.gd" id="1_ekm4o"]
-[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/_theme/main_theme.tres" id="1_th32n"]
+[ext_resource type="Theme" uid="uid://ngj4frvw6klg" path="res://main/ui/theme/main_theme.tres" id="1_th32n"]
 
 [node name="ProgressWidget" type="HBoxContainer"]
 offset_right = 40.0

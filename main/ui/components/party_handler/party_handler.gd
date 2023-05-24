@@ -14,10 +14,9 @@ signal fighter_selected(fighter)
 var hotkeys: Dictionary
 
 func _ready() -> void:
-	if not CommonReference.party.is_inside_tree():
-		await CommonReference.party.ready
-	CommonReference.party.child_entered_tree.connect(_on_party_updated)
-	CommonReference.party.child_exiting_tree.connect(_on_party_updated)
+	await get_tree().get_root().ready
+	CommonReference.combat.party.child_entered_tree.connect(_on_party_updated)
+	CommonReference.combat.party.child_exiting_tree.connect(_on_party_updated)
 	%StockHolder.visible = false
 	%StockHolder.custom_minimum_size.y = 0
 	
@@ -44,7 +43,7 @@ func _on_fighter_selected(fighter: Fighter) -> void:
 
 func update_active_party() -> void:
 	var active_count: int = 0
-	for fighter in CommonReference.party.get_children():
+	for fighter in CommonReference.combat.party.get_children():
 		if not fighter.active:
 			continue
 		active_count += 1
@@ -65,7 +64,7 @@ func update_active_party() -> void:
 		new_panel.initialize(null)
 
 func update_inactive_party() -> void:
-	for fighter in CommonReference.party.get_children():
+	for fighter in CommonReference.combat.party.get_children():
 		var new_handler: FighterHandler = FIGHTER_HANDLER_SCENE.instantiate()
 		%InactivePartyContainer.add_child(new_handler)
 		new_handler.button.button_down.connect(_on_fighter_selected.bind(fighter))

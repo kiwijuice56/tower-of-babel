@@ -6,6 +6,7 @@ const CHOICE_BUTTON_SCENE: PackedScene = preload("res://main/ui/components/choic
 
 @export var scale_time: float = 0.03
 
+signal completed
 signal button_pressed
 
 func _input(event: InputEvent) -> void:
@@ -15,10 +16,18 @@ func _input(event: InputEvent) -> void:
 func query_choice(can_cancel: bool = false, initial_select: int = 0) -> String:
 	set_process_input(can_cancel)
 	
+	CommonReference.ui.input_help_handler.append_instructions({"a" : "accept", "_left_right": "select"})
+	if can_cancel:
+		CommonReference.ui.input_help_handler.append_instructions({"b" : "cancel"})
+	
 	%ButtonContainer.get_child(initial_select).grab_focus()
 	var selected_option: String = await button_pressed
 	
 	set_process_input(false)
+	
+	CommonReference.ui.input_help_handler.remove_instructions({"a" : "accept", "_left_right": "select"})
+	if can_cancel:
+		CommonReference.ui.input_help_handler.remove_instructions({"b" : "cancel"})
 	
 	return selected_option
 
@@ -50,6 +59,8 @@ func transition_in() -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(self, "scale:y", 1.0, scale_time)
 	await tween.finished
+	
+	completed.emit()
 
 func transition_out() -> void:
 	scale.y = 1.0
@@ -57,6 +68,8 @@ func transition_out() -> void:
 	tween.tween_property(self, "scale:y", 0.0, scale_time)
 	await tween.finished
 	visible = false
+	
+	completed.emit()
 
 func cancel() -> void:
 	button_pressed.emit("")

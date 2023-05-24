@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://bas8dro3pk1ia"]
 
 [ext_resource type="Texture2D" uid="uid://byaau3ja4bfc8" path="res://main/ui/components/element_icon/sprites/element7.png" id="1_ef3ts"]
 [ext_resource type="Script" path="res://main/ui/components/element_icon/element_icon.gd" id="2_obdpv"]
 
-[node name="AffinityIcon" type="TextureRect"]
+[node name="ElementIcon" type="TextureRect"]
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_ef3ts")

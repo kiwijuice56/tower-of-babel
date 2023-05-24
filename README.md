@@ -20,8 +20,8 @@ Base interface for all UI scenes.
 - `[coroutine] func transition_in() -> void`
 - `[coroutine] func transition_out() -> void`
 
-### Unit [Button, Icon] extends Component
-A small, immutable and instantiable representation of some sort of information. Units should not be standalone, but rather controlled entirely by some parent component that initializes them.
+### Unit [Button, Icon, Container] extends Component
+A small, immutable and instantiable representation of some sort of information. Units should not be standalone, but rather controlled entirely by some parent component that initializes them. Container units can have other unit children, but they should not manage the visibility or state of those units
 
 ### Widget extends Component
 A small, instantiable representation of some sort of information. Widgets are the same as units, except that they are mutable and usually represent a constantly changing state. Widgets should not handle other components.
