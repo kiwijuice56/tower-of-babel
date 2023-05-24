@@ -9,7 +9,7 @@ func act() -> void:
 		"":
 			state_machine.transition_to("Dungeon")
 		"Skill":
-			CommonReference.ui.action_handler.initialize(CommonReference.combat.party.get_active_fighters(), "Skill", 0, true)
+			CommonReference.ui.action_handler.initialize(CommonReference.combat.party.get_active_fighters(), "Skill", 0, false)
 			CommonReference.ui.text_handler.clear()
 			
 			var parallel: ParallelCoroutine = ParallelCoroutine.new()

@@ -84,3 +84,6 @@ func _ready() -> void:
 	health = max_health
 	stamina = max_stamina
 	status_effects = [StatusEffect.BLEED, StatusEffect.RADIATION, StatusEffect.DRUGGED]
+	
+	for action in %Skill.get_children() + %Tactic.get_children() + %Party.get_children():
+		action.action_owner = self

@@ -6,9 +6,12 @@
 script = ExtResource("2_118qc")
 
 [node name="Skill" type="Node" parent="."]
+unique_name_in_owner = true
 
 [node name="Tactic" type="Node" parent="."]
+unique_name_in_owner = true
 
-[node name="Control" type="Node" parent="."]
+[node name="Party" type="Node" parent="."]
+unique_name_in_owner = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

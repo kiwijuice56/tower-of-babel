@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b21m1a0vsrihn"]
+[gd_scene load_steps=2 format=3 uid="uid://drpqpy3npj66e"]
 
-[ext_resource type="Script" path="res://main/ui/components/action_handler/action_container/action_container.gd" id="1_8um0j"]
+[ext_resource type="Script" path="res://main/ui/components/action_handler/action_button_handler/action_button_handler.gd" id="1_ps220"]
 
-[node name="ActionContainer" type="ScrollContainer"]
+[node name="ActionButtonHandler" type="ScrollContainer"]
 custom_minimum_size = Vector2(0, 100)
 size_flags_vertical = 0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
-script = ExtResource("1_8um0j")
+script = ExtResource("1_ps220")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 unique_name_in_owner = true

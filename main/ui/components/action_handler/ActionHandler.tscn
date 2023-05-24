@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs2dehab7m67h"]
+[gd_scene load_steps=7 format=3 uid="uid://c7upxml65lkbh"]
 
 [ext_resource type="Theme" uid="uid://0f7l5qrjhqko" path="res://main/ui/theme/main_theme.tres" id="1_pv32p"]
-[ext_resource type="PackedScene" uid="uid://bi0of34x54tuj" path="res://main/ui/components/action_handler/action_button/ActionButton.tscn" id="1_th8ah"]
 [ext_resource type="Script" path="res://main/ui/components/action_handler/action_handler.gd" id="2_257yh"]
 [ext_resource type="Shader" path="res://main/ui/shader/hologram.gdshader" id="3_mjer3"]
 [ext_resource type="Texture2D" uid="uid://brhy6wjk40cqb" path="res://main/ui/shader/hologram_lines.png" id="4_i56vs"]
 [ext_resource type="Texture2D" uid="uid://dl0wi63d4bjqj" path="res://main/combat/fighter/eve/smt_ii_heroine.png" id="5_rbocm"]
-[ext_resource type="PackedScene" uid="uid://b21m1a0vsrihn" path="res://main/ui/components/action_handler/action_container/ActionContainer.tscn" id="6_lcrrr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nepuo"]
 shader = ExtResource("3_mjer3")
@@ -50,6 +48,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TabInfoContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="LeftTabLabel" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/TabInfoContainer"]
@@ -77,14 +76,3 @@ unique_name_in_owner = true
 layout_mode = 2
 clip_tabs = false
 tabs_visible = false
-
-[node name="ActionContainer" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer" instance=ExtResource("6_lcrrr")]
-layout_mode = 2
-
-[node name="ActionButton" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ActionContainer/ButtonContainer" index="0" instance=ExtResource("1_th8ah")]
-layout_mode = 2
-
-[node name="ActionButton2" parent="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ActionContainer/ButtonContainer" index="1" instance=ExtResource("1_th8ah")]
-layout_mode = 2
-
-[editable path="HBoxContainer/PanelContainer/VBoxContainer/TabContainer/ActionContainer"]

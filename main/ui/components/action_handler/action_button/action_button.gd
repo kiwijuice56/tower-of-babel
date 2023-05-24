@@ -15,10 +15,13 @@ func _ready() -> void:
 func _on_focus_entered() -> void:
 	CommonReference.ui.text_handler.display_text(action.get_description(), TextHandler.TextSpeed.FAST, false)
 
-func initialize(action: Action) -> void:
+func initialize(action: Action, in_combat: bool) -> void:
 	self.action = action
 	
-	%CostLabel.text = str(action.cost)
+	disabled = not action.can_use(in_combat)
+	%DisabledCover.visible = disabled
+	
+	%CostLabel.text = str(action.get_cost())
 	match action.cost_type:
 		action.CostType.NONE:
 			%CostLabel.visible = false
@@ -28,7 +31,9 @@ func initialize(action: Action) -> void:
 		action.CostType.SP:
 			%CostLabel.set("theme_override_colors/font_color", sp_color)
 			%CostLabel.text += "s"
+	
 	if action.element == action.Element.NONE:
 		%AffinityIcon.visible = false
+	
 	%AffinityIcon.initialize(action.element)
 	%NameLabel.text = action.display_name

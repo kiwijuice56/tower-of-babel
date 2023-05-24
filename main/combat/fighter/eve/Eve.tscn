@@ -21,8 +21,11 @@ age = 1
 gender = 1
 
 [node name="Slash" parent="Skill" index="0" instance=ExtResource("3_8u0n7")]
+display_name = "Bisect"
 element = 2
-flavor_text = "Slice into the flesh of an aggressor."
+flavor_text = "Attempt to slice apart an aggressor."
+cost_type = 1
+cost = 12
 
 [node name="Agilao" parent="Skill" index="1" instance=ExtResource("3_8u0n7")]
 display_name = "Agilao"
@@ -38,3 +41,24 @@ flavor_text = "Start a localized nuclear chain reaction."
 target_count = 2
 cost_type = 2
 cost = 32
+
+[node name="Estoma" parent="Skill" index="3" instance=ExtResource("3_8u0n7")]
+display_name = "Estoma"
+element = 64
+flavor_text = "Cast an invisibility cloak over your party."
+target_type = 0
+target_count = 0
+battle_ready = false
+overworld_ready = true
+cost_type = 2
+cost = 12
+
+[node name="Estoma2" parent="Skill" index="4" instance=ExtResource("3_8u0n7")]
+display_name = "Recarm"
+element = 128
+flavor_text = "Revive a party member."
+target_type = 0
+target_count = 0
+overworld_ready = true
+cost_type = 2
+cost = 60
