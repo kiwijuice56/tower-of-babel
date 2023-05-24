@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdmqd72qdoi4t"]
+
+[ext_resource type="PackedScene" uid="uid://cychelkv7vlmt" path="res://main/combat/action/skill/point/PointSkill.tscn" id="1_wcscg"]
+
+[node name="Bisect" instance=ExtResource("1_wcscg")]
+power = 12
+accuracy = 92
+critical = 15
+cost_type = 1
+cost = 12
+display_name = "Bisect"
+element = 2
+flavor_text = "Slice an enemy in half with your blade."
+target_type = 3
+target_count = 1
+battle_ready = true

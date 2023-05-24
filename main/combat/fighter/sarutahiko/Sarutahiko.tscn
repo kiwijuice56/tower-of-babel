@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://c546obe5cg8ls"]
+
+[ext_resource type="PackedScene" uid="uid://28mersviecut" path="res://main/combat/fighter/Fighter.tscn" id="1_svt6p"]
+[ext_resource type="Texture2D" uid="uid://bmf1ll4suefen" path="res://main/combat/fighter/sarutahiko/sarutahiko.png" id="2_mcfya"]
+[ext_resource type="PackedScene" uid="uid://jmosn57nucmj" path="res://main/combat/action/skill/point/lunge/Lunge.tscn" id="3_ccj3x"]
+[ext_resource type="PackedScene" uid="uid://suyrf52d0jfb" path="res://main/combat/action/skill/point/dia/Dia.tscn" id="4_ycdg3"]
+
+[node name="Sarutahiko" instance=ExtResource("1_svt6p")]
+texture = ExtResource("2_mcfya")
+level = 8
+max_health = 53
+max_stamina = 24
+display_name = "Sarutahiko"
+
+[node name="Lunge" parent="Action/Skill" index="0" instance=ExtResource("3_ccj3x")]
+
+[node name="Dia" parent="Action/Skill" index="1" instance=ExtResource("4_ycdg3")]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://crwomfsvvhgrh"]
+
+[ext_resource type="PackedScene" uid="uid://cy0qx2dcifh7r" path="res://main/combat/action/skill/Skill.tscn" id="1_falvx"]
+[ext_resource type="Script" path="res://main/combat/action/skill/buff/buff_skill.gd" id="2_majkq"]
+
+[node name="BuffSkill" instance=ExtResource("1_falvx")]
+script = ExtResource("2_majkq")

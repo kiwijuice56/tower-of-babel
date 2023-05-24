@@ -21,16 +21,22 @@ func initialize(action: Action, in_combat: bool) -> void:
 	disabled = not action.can_use(in_combat)
 	%DisabledCover.visible = disabled
 	
-	%CostLabel.text = str(action.get_cost())
-	match action.cost_type:
-		action.CostType.NONE:
-			%CostLabel.visible = false
-		action.CostType.HP:
-			%CostLabel.set("theme_override_colors/font_color", hp_color)
-			%CostLabel.text += "h"
-		action.CostType.SP:
-			%CostLabel.set("theme_override_colors/font_color", sp_color)
-			%CostLabel.text += "s"
+	# I could use a SkillButton class intead, but the difference is too small for it 
+	# to be worth the extra code
+	if action is Skill:
+		var skill: Skill = action as Skill
+		%CostLabel.text = str(skill.get_cost())
+		match skill.cost_type:
+			skill.CostType.NONE:
+				%CostLabel.visible = false
+			skill.CostType.HP:
+				%CostLabel.set("theme_override_colors/font_color", hp_color)
+				%CostLabel.text += "h"
+			skill.CostType.SP:
+				%CostLabel.set("theme_override_colors/font_color", sp_color)
+				%CostLabel.text += "s"
+	else:
+		%CostLabel.visible = false
 	
 	if action.element == action.Element.NONE:
 		%AffinityIcon.visible = false

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdgyswjmyrdh7"]
+
+[ext_resource type="PackedScene" uid="uid://c6m5rfa0f38dp" path="res://main/combat/status/Status.tscn" id="1_m8xp7"]
+[ext_resource type="Texture2D" uid="uid://cbdl3prv282ic" path="res://main/combat/status/bleeding/bleed.png" id="2_1dgwq"]
+
+[node name="Bleeding" instance=ExtResource("1_m8xp7")]
+display_name = "Bleeding"
+icon = ExtResource("2_1dgwq")

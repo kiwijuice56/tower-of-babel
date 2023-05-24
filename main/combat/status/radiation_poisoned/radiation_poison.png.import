@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1ga6mj2lqj4f"
-path="res://.godot/imported/radiation_poison.png-8186e176b6ed7df6b47237feb63ec3f9.ctex"
+path="res://.godot/imported/radiation_poison.png-e021a7f6e7c8e256faf7c2dd56d8df5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ui/components/status_widget/sprites/radiation_poison.png"
-dest_files=["res://.godot/imported/radiation_poison.png-8186e176b6ed7df6b47237feb63ec3f9.ctex"]
+source_file="res://main/combat/status/radiation_poisoned/radiation_poison.png"
+dest_files=["res://.godot/imported/radiation_poison.png-e021a7f6e7c8e256faf7c2dd56d8df5f.ctex"]
 
 [params]
 

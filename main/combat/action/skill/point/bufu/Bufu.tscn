@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cce7qx4nx0lbr"]
+
+[ext_resource type="PackedScene" uid="uid://cychelkv7vlmt" path="res://main/combat/action/skill/point/PointSkill.tscn" id="1_vbt80"]
+
+[node name="Bufu" instance=ExtResource("1_vbt80")]
+power = 8
+accuracy = 98
+critical = 3
+cost_type = 2
+cost = 11
+display_name = "Bufu"
+element = 8
+flavor_text = "Spawn ice crystals in the blood of an enemy."
+target_type = 3
+target_count = 1
+battle_ready = true

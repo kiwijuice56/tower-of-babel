@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxbuwd7opnexj"]
+
+[ext_resource type="PackedScene" uid="uid://c6m5rfa0f38dp" path="res://main/combat/status/Status.tscn" id="1_w32yw"]
+[ext_resource type="Texture2D" uid="uid://bh7nukixgef7e" path="res://main/combat/status/drugged/drugged.png" id="2_msry7"]
+
+[node name="Drugged" instance=ExtResource("1_w32yw")]
+display_name = "Drugged"
+icon = ExtResource("2_msry7")

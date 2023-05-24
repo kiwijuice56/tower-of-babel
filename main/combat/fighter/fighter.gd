@@ -1,13 +1,6 @@
 class_name Fighter
 extends Sprite2D
 
-enum StatusEffect { 
-	DEAD, 
-	BLEED, 
-	RADIATION, 
-	DRUGGED, 
-}
-
 enum Age {
 	CHILD, ADULT, ELDER, ETERNAL,
 }
@@ -69,11 +62,6 @@ var stamina: int:
 	set(value):
 		stamina_changed.emit(value)
 		stamina = value
-# This variable must be duplicated in order to call the setter
-var status_effects: Array[int]:
-	set(value):
-		status_changed.emit(value)
-		status_effects = value
 var active: bool = true
 
 signal health_changed(value)
@@ -83,7 +71,57 @@ signal status_changed(value)
 func _ready() -> void:
 	health = max_health
 	stamina = max_stamina
-	status_effects = [StatusEffect.BLEED, StatusEffect.RADIATION, StatusEffect.DRUGGED]
+	
+	initialize()
+
+# Ensures that all entry methods for skills/status conditions are called correctly
+# from either loading a Fighter scene or initializing using save data
+func initialize(data: Dictionary = {}) -> void:
+	# TODO: Loading skills and status conditions from save data
+	if not data.is_empty():
+		pass
 	
 	for action in %Skill.get_children() + %Tactic.get_children() + %Party.get_children():
 		action.action_owner = self
+	
+	for skill in %Skill.get_children():
+		learn_skill(skill)
+	for status in %StatusConditions.get_children():
+		inflict_status_condition(status)
+
+func learn_skill(skill: Skill, idx: int = -1) -> void:
+	skill.action_owner = self
+	skill.learn()
+	if not skill.is_inside_tree():
+		%Skill.add_child(skill, idx)
+
+func unlearn_skill(skill: Skill) -> void:
+	skill.unlearn()
+	skill.action_owner = null
+	%Skill.remove_child(skill)
+
+func inflict_status_condition(status: Status) -> void:
+	status.status_owner = self
+	status.inflict()
+	if not status.is_inside_tree():
+		%StatusConditions.add_child(status)
+	
+	status_changed.emit(get_status_conditions())
+
+func recover_status_condition(status: Status) -> void:
+	status.recover()
+	status.status_owner = null
+	%StatusConditions.remove_child(status)
+	status.queue_free()
+	
+	status_changed.emit(get_status_conditions())
+
+func get_status_conditions() -> Array[Status]:
+	var condition_list: Array[Status] = []
+	condition_list.assign(%StatusConditions.get_children())
+	return condition_list
+
+func get_actions(category: String) -> Array[Action]:
+	var action_list: Array[Action] = []
+	action_list.assign(get_node("Action/" + category).get_children())
+	return action_list

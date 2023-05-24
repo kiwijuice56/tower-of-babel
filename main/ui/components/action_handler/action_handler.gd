@@ -41,10 +41,7 @@ func initialize(fighters: Array[Fighter], category: String, initial_fighter: int
 		var handler: ActionButtonHandler = ACTION_BUTTON_HANDLER_SCENE.instantiate()
 		%TabContainer.add_child(handler)
 		
-		@warning_ignore("unassigned_variable")
-		var actions: Array[Action]
-		actions.assign(fighter.get_node(category).get_children())
-		handler.initialize(actions, in_combat)
+		handler.initialize(fighter.get_actions(category), in_combat)
 		
 		for button in handler.get_action_buttons():
 			button.pressed.connect(emit_signal.bind("button_pressed", button.action))

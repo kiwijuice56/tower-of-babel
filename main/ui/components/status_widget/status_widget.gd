@@ -2,15 +2,7 @@ class_name StatusWidget
 extends TextureRect
 # Displays the status effects inflicted on a Fighter
 
-const SPRITE_PATH = "res://main/ui/components/status_widget/sprites/"
-const SPRITES: Dictionary = {
-	Fighter.StatusEffect.BLEED: preload(SPRITE_PATH + "bleed.png"),
-	Fighter.StatusEffect.DEAD: preload(SPRITE_PATH + "dead.png"),
-	Fighter.StatusEffect.RADIATION: preload(SPRITE_PATH + "radiation_poison.png"),
-	Fighter.StatusEffect.DRUGGED: preload(SPRITE_PATH + "drugged.png")
-}
-
-var status_effects: Array[int]
+var status_effects: Array[Status]
 
 func _ready() -> void:
 	texture = null
@@ -21,9 +13,9 @@ func _on_swap_timeout() -> void:
 		texture = null
 	else:
 		status_effects.append(status_effects.pop_front())
-		texture = SPRITES[status_effects.front()]
+		texture = status_effects.front().icon
 
-func set_status_effects(status_effects: Array[int]) -> void:
+func set_status_effects(status_effects: Array[Status]) -> void:
 	self.status_effects = status_effects.duplicate()
 	_on_swap_timeout()
 	%Timer.start()

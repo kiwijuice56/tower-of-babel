@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cychelkv7vlmt"]
+
+[ext_resource type="PackedScene" uid="uid://cy0qx2dcifh7r" path="res://main/combat/action/skill/Skill.tscn" id="1_3j27n"]
+[ext_resource type="Script" path="res://main/combat/action/skill/point/point_skill.gd" id="2_ylsuy"]
+
+[node name="PointSkill" instance=ExtResource("1_3j27n")]
+script = ExtResource("2_ylsuy")
+power = 0
+accuracy = 0
+critical = 0

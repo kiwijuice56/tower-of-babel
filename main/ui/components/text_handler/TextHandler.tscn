@@ -28,7 +28,9 @@ texture_filter = 1
 custom_minimum_size = Vector2(128, 28)
 layout_mode = 2
 theme_override_constants/line_separation = 4
+text = "IN THE RAIN OR IN THEEEEE"
 fit_content = true
+visible_characters_behavior = 1
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true

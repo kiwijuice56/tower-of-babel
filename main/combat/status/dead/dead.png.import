@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbdl3prv282ic"
-path="res://.godot/imported/bleed.png-f3de3be96f54816e13ff3a4dc94594db.ctex"
+uid="uid://1meurppswwhb"
+path="res://.godot/imported/dead.png-1b9b5864b9a1b0a2510110b23af37443.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ui/components/status_widget/sprites/bleed.png"
-dest_files=["res://.godot/imported/bleed.png-f3de3be96f54816e13ff3a4dc94594db.ctex"]
+source_file="res://main/combat/status/dead/dead.png"
+dest_files=["res://.godot/imported/dead.png-1b9b5864b9a1b0a2510110b23af37443.ctex"]
 
 [params]
 

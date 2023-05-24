@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvmego464412r"]
+
+[ext_resource type="PackedScene" uid="uid://cychelkv7vlmt" path="res://main/combat/action/skill/point/PointSkill.tscn" id="1_8uftl"]
+
+[node name="Megido" instance=ExtResource("1_8uftl")]
+power = 16
+accuracy = 98
+critical = 3
+cost_type = 2
+cost = 24
+display_name = "Megido"
+element = 512
+flavor_text = "Create a localized chain nuclear reaction."
+target_type = 3
+target_count = 2
+battle_ready = true

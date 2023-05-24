@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkv4m05kjs738"]
+
+[ext_resource type="PackedScene" uid="uid://c6m5rfa0f38dp" path="res://main/combat/status/Status.tscn" id="1_4qw25"]
+[ext_resource type="Texture2D" uid="uid://1meurppswwhb" path="res://main/combat/status/dead/dead.png" id="2_hult4"]
+
+[node name="Dead" instance=ExtResource("1_4qw25")]
+display_name = "Dead"
+icon = ExtResource("2_hult4")

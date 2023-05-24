@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyof1q6uvwsah"]
+[gd_scene load_steps=8 format=3 uid="uid://dyof1q6uvwsah"]
 
 [ext_resource type="PackedScene" uid="uid://28mersviecut" path="res://main/combat/fighter/Fighter.tscn" id="1_xstkd"]
 [ext_resource type="Texture2D" uid="uid://cmd0qc02lsrlk" path="res://main/combat/fighter/arahabaki/arahabaki.png" id="2_5cm1p"]
-[ext_resource type="PackedScene" uid="uid://brcasxcr218cb" path="res://main/combat/action/Action.tscn" id="3_piso6"]
+[ext_resource type="PackedScene" uid="uid://jmosn57nucmj" path="res://main/combat/action/skill/point/lunge/Lunge.tscn" id="3_bfsco"]
+[ext_resource type="PackedScene" uid="uid://cxbuwd7opnexj" path="res://main/combat/status/drugged/Drugged.tscn" id="3_h2s3l"]
+[ext_resource type="PackedScene" uid="uid://cce7qx4nx0lbr" path="res://main/combat/action/skill/point/bufu/Bufu.tscn" id="3_tnav2"]
+[ext_resource type="PackedScene" uid="uid://cdgyswjmyrdh7" path="res://main/combat/status/bleeding/Bleeding.tscn" id="4_1c11c"]
+[ext_resource type="PackedScene" uid="uid://dvmego464412r" path="res://main/combat/action/skill/point/megido/Megido.tscn" id="4_f3y3l"]
 
 [node name="Arahabaki" instance=ExtResource("1_xstkd")]
 texture = ExtResource("2_5cm1p")
@@ -19,18 +23,12 @@ resist = 4
 nullify = 1
 display_name = "Arahabaki"
 
-[node name="Action" parent="Skill" index="0" instance=ExtResource("3_piso6")]
-display_name = "Bufula"
-element = 8
-flavor_text = "Spawn ice crystals within the blood of an aggressor."
-battle_ready = true
-cost_type = 2
-cost = 8
+[node name="Lunge" parent="Action/Skill" index="0" instance=ExtResource("3_bfsco")]
 
-[node name="Action2" parent="Skill" index="1" instance=ExtResource("3_piso6")]
-display_name = "Tarukaja"
-element = 256
-flavor_text = "Increase the adrenaline levels within your party."
-battle_ready = true
-cost_type = 2
-cost = 16
+[node name="Bufu" parent="Action/Skill" index="1" instance=ExtResource("3_tnav2")]
+
+[node name="Megido" parent="Action/Skill" index="2" instance=ExtResource("4_f3y3l")]
+
+[node name="Drugged" parent="StatusConditions" index="0" instance=ExtResource("3_h2s3l")]
+
+[node name="Bleeding" parent="StatusConditions" index="1" instance=ExtResource("4_1c11c")]

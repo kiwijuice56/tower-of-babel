@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy0qx2dcifh7r"]
+
+[ext_resource type="PackedScene" uid="uid://brcasxcr218cb" path="res://main/combat/action/Action.tscn" id="1_c671e"]
+[ext_resource type="Script" path="res://main/combat/action/skill/skill.gd" id="2_ylyap"]
+
+[node name="Skill" instance=ExtResource("1_c671e")]
+script = ExtResource("2_ylyap")
+cost_type = 0
+cost = 0

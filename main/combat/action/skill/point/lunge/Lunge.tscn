@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://jmosn57nucmj"]
+
+[ext_resource type="PackedScene" uid="uid://cychelkv7vlmt" path="res://main/combat/action/skill/point/PointSkill.tscn" id="1_027o4"]
+
+[node name="Lunge" instance=ExtResource("1_027o4")]
+power = 8
+accuracy = 96
+critical = 7
+cost_type = 1
+cost = 8
+display_name = "Lunge"
+element = 2
+flavor_text = "Throw yourself at an aggressor."
+target_type = 3
+target_count = 1
+battle_ready = true

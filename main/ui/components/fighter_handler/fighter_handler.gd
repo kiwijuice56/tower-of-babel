@@ -18,7 +18,7 @@ func _on_stamina_changed(stamina: int) -> void:
 	%StaminaBar.set_number(stamina)
 	%StaminaBar.set_progress(stamina / float(fighter.max_stamina))
 
-func _on_status_changed(status_effects: Array[int]) -> void:
+func _on_status_changed(status_effects: Array[Status]) -> void:
 	%StatusIcon.set_status_effects(status_effects)
 
 func initialize(fighter: Fighter, is_duplicate: bool = false) -> void:
@@ -35,6 +35,12 @@ func initialize(fighter: Fighter, is_duplicate: bool = false) -> void:
 	fighter.stamina_changed.connect(_on_stamina_changed)
 	fighter.status_changed.connect(_on_status_changed)
 	
+	# To not cause false signals in the fighter, we initialize the components by 
+	# calling the signal methods directly with their initial state
+	
 	_on_health_changed(fighter.health)
 	_on_stamina_changed(fighter.stamina)
-	_on_status_changed(fighter.status_effects)
+	
+	var condition_list: Array[Status] = []
+	condition_list.assign(fighter.get_node("StatusConditions").get_children())
+	_on_status_changed(condition_list)

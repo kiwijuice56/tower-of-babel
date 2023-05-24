@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://suyrf52d0jfb"]
+
+[ext_resource type="PackedScene" uid="uid://cychelkv7vlmt" path="res://main/combat/action/skill/point/PointSkill.tscn" id="1_3077d"]
+
+[node name="Dia" instance=ExtResource("1_3077d")]
+power = 8
+accuracy = 98
+critical = 3
+cost_type = 2
+cost = 8
+display_name = "Dia"
+element = 128
+flavor_text = "Stimulate cell growth in the wounds of a party member."
+target_type = 1
+target_count = 1
+battle_ready = true
+overworld_ready = true
