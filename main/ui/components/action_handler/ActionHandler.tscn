@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7upxml65lkbh"]
+[gd_scene load_steps=8 format=3 uid="uid://c7upxml65lkbh"]
 
 [ext_resource type="Theme" uid="uid://0f7l5qrjhqko" path="res://main/ui/theme/main_theme.tres" id="1_pv32p"]
 [ext_resource type="Script" path="res://main/ui/components/action_handler/action_handler.gd" id="2_257yh"]
 [ext_resource type="Shader" path="res://main/ui/shader/hologram.gdshader" id="3_mjer3"]
 [ext_resource type="Texture2D" uid="uid://brhy6wjk40cqb" path="res://main/ui/shader/hologram_lines.png" id="4_i56vs"]
 [ext_resource type="Texture2D" uid="uid://dl0wi63d4bjqj" path="res://main/combat/fighter/eve/smt_ii_heroine.png" id="5_rbocm"]
+[ext_resource type="FontVariation" uid="uid://dum51bq3d115a" path="res://main/ui/theme/font/detail_font.tres" id="6_2ottb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nepuo"]
 shader = ExtResource("3_mjer3")
@@ -46,6 +47,16 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleLabel" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.470588, 0.470588, 0.470588, 1)
+theme_override_fonts/font = ExtResource("6_2ottb")
+theme_override_font_sizes/font_size = 8
+text = "skills"
 
 [node name="TabInfoContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -53,7 +64,7 @@ layout_mode = 2
 
 [node name="LeftTabLabel" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/TabInfoContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.470588, 0.470588, 0.470588, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "<"
 horizontal_alignment = 1
 
@@ -61,13 +72,13 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_colors/font_color = Color(0.470588, 0.470588, 0.470588, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Eve"
 horizontal_alignment = 1
 
 [node name="RightTabLabel" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/TabInfoContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.470588, 0.470588, 0.470588, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = ">"
 horizontal_alignment = 1
 

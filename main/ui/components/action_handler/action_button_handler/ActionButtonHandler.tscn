@@ -6,7 +6,7 @@
 custom_minimum_size = Vector2(0, 100)
 size_flags_vertical = 0
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
+vertical_scroll_mode = 0
 script = ExtResource("1_ps220")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bs3oaaa8r180i"]
+[gd_scene load_steps=7 format=3 uid="uid://bs3oaaa8r180i"]
 
 [ext_resource type="Script" path="res://main/combat/combat.gd" id="1_f063p"]
 [ext_resource type="Script" path="res://main/combat/party/party.gd" id="1_i4mjq"]
 [ext_resource type="PackedScene" uid="uid://bwflgkdis3icn" path="res://main/combat/fighter/eve/Eve.tscn" id="2_7h0h8"]
 [ext_resource type="PackedScene" uid="uid://dyof1q6uvwsah" path="res://main/combat/fighter/arahabaki/Arahabaki.tscn" id="4_x7ysv"]
 [ext_resource type="PackedScene" uid="uid://c546obe5cg8ls" path="res://main/combat/fighter/sarutahiko/Sarutahiko.tscn" id="5_jfcdb"]
+[ext_resource type="Script" path="res://main/combat/target_selector/target_selector.gd" id="6_vhkxr"]
 
 [node name="Combat" type="Node"]
 script = ExtResource("1_f063p")
@@ -18,3 +19,11 @@ script = ExtResource("1_i4mjq")
 [node name="Arahabaki" parent="PlayerParty" instance=ExtResource("4_x7ysv")]
 
 [node name="Sarutahiko" parent="PlayerParty" instance=ExtResource("5_jfcdb")]
+
+[node name="EnemyParty" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_i4mjq")
+
+[node name="TargetSelector" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_vhkxr")

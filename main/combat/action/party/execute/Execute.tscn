@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://baf5vltnuaapu"]
+
+[ext_resource type="Script" path="res://main/combat/action/party/execute/execute.gd" id="1_abchg"]
+
+[node name="Execute" type="Node"]
+script = ExtResource("1_abchg")
+display_name = "Execute"
+element = 512
+flavor_text = "Permanently kill a party member for their essence."
+target_type = 1
+target_count = 1
+can_target_party = true
+can_target_active = true
+can_target_inactive = true
+battle_ready = true
+overworld_ready = true

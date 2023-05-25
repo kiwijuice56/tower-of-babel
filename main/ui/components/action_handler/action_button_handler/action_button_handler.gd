@@ -26,6 +26,7 @@ func button_grab_focus(idx: int) -> void:
 		var focus: Control = get_viewport().gui_get_focus_owner() 
 		if focus != null:
 			focus.release_focus()
+			CommonReference.ui.text_handler.clear()
 	else:
 		# The automatic focus happens first without the call_deferred
 		%ButtonContainer.get_child(idx).call_deferred("grab_focus")

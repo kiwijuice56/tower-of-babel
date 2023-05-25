@@ -40,6 +40,6 @@ func initialize(action: Action, in_combat: bool) -> void:
 	
 	if action.element == action.Element.NONE:
 		%AffinityIcon.visible = false
-	
-	%AffinityIcon.initialize(action.element)
+	else:
+		%AffinityIcon.initialize(action.element)
 	%NameLabel.text = action.display_name

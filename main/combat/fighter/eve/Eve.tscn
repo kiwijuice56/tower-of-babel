@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwflgkdis3icn"]
+[gd_scene load_steps=9 format=3 uid="uid://bwflgkdis3icn"]
 
 [ext_resource type="PackedScene" uid="uid://28mersviecut" path="res://main/combat/fighter/Fighter.tscn" id="1_hp7f4"]
 [ext_resource type="Texture2D" uid="uid://dl0wi63d4bjqj" path="res://main/combat/fighter/eve/smt_ii_heroine.png" id="2_iublh"]
 [ext_resource type="PackedScene" uid="uid://cdmqd72qdoi4t" path="res://main/combat/action/skill/point/bisect/Bisect.tscn" id="3_duldw"]
+[ext_resource type="PackedScene" uid="uid://cl6vipx0bsnkx" path="res://main/combat/action/party/summon/Summon.tscn" id="4_c3mam"]
+[ext_resource type="PackedScene" uid="uid://cof7nfdp5xeeb" path="res://main/combat/action/tactic/Tactic.tscn" id="4_c5dmo"]
+[ext_resource type="PackedScene" uid="uid://cwrxmlx7alueh" path="res://main/combat/action/party/check/Check.tscn" id="4_kcud8"]
+[ext_resource type="PackedScene" uid="uid://b6s7c5yw6dpcg" path="res://main/combat/action/party/return/Return.tscn" id="5_fh83l"]
+[ext_resource type="PackedScene" uid="uid://baf5vltnuaapu" path="res://main/combat/action/party/execute/Execute.tscn" id="7_iev0k"]
 
 [node name="Eve" instance=ExtResource("1_hp7f4")]
 texture = ExtResource("2_iublh")
@@ -21,3 +26,25 @@ age = 1
 gender = 1
 
 [node name="Bisect" parent="Action/Skill" index="0" instance=ExtResource("3_duldw")]
+
+[node name="Tactic" parent="Action/Tactic" index="0" instance=ExtResource("4_c5dmo")]
+display_name = "Intimidate"
+element = 1024
+flavor_text = "Threaten a demon until they submit and join your party. "
+target_type = 2
+battle_ready = true
+
+[node name="Tactic2" parent="Action/Tactic" index="1" instance=ExtResource("4_c5dmo")]
+display_name = "Negotiate"
+element = 1024
+flavor_text = "Peacefully resolve conflict with a demon."
+target_type = 2
+battle_ready = true
+
+[node name="Check" parent="Action/Party" index="0" instance=ExtResource("4_kcud8")]
+
+[node name="Summon" parent="Action/Party" index="1" instance=ExtResource("4_c3mam")]
+
+[node name="Return" parent="Action/Party" index="2" instance=ExtResource("5_fh83l")]
+
+[node name="Execute" parent="Action/Party" index="3" instance=ExtResource("7_iev0k")]

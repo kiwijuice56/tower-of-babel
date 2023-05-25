@@ -14,6 +14,8 @@ const SPRITES: Dictionary = {
 	Action.Element.HEALING: preload(SPRITE_PATH + "element8.png"),
 	Action.Element.SUPPORT: preload(SPRITE_PATH + "element9.png"),
 	Action.Element.ALMIGHTY: preload(SPRITE_PATH + "element10.png"),
+	Action.Element.COMP: preload(SPRITE_PATH + "element11.png"),
+	Action.Element.TALK: preload(SPRITE_PATH + "element12.png"),
 }
 
 func initialize(element: int) -> void:

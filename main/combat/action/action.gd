@@ -3,21 +3,7 @@ extends Node
 # Base class for all possible actions within combat
 
 
-# Selecting NONE for either targeting option will skip the target selection process
-# during combat, but is rare and only needed for actions such as Pass
 
-# How many targets that this action can effect; necessary for the UI to select the 
-# appropriate amount of targets
-enum TargetCount {
-	# Random can potentially affect all targets in a party
-	NONE, SINGLE, ALL, RANDOM
-}
-
-# Whether this action will affect the same or opposing party (ex: healing vs. attacking) 
-enum TargetType {
-	# SELF_ONLY is for actions such as focusing/charging
-	NONE, SAME, SAME_INACTIVE, OTHER, SELF_ONLY
-}
 
 enum CostType {
 	NONE, HP, SP
@@ -25,16 +11,18 @@ enum CostType {
 
 # Powers of 2 are used in order to represent combinations of elements in a single integer
 enum Element {
-	NONE = 1,
-	PHYSICAL = 2,
-	FIRE = 4,
-	ICE = 8,
-	ELECTRICITY = 16,
-	EARTH = 32,
-	CELESTIAL = 64,
-	HEALING = 128,
-	SUPPORT = 256,
-	ALMIGHTY = 512,
+	NONE = 0,
+	PHYSICAL = 1,
+	FIRE = 2,
+	ICE = 4,
+	ELECTRICITY = 8,
+	EARTH = 16,
+	CELESTIAL = 32,
+	HEALING = 64,
+	SUPPORT = 128,
+	ALMIGHTY = 256,
+	COMP = 512,
+	TALK = 1024,
 }
 
 @export_group("Identity")
@@ -43,8 +31,12 @@ enum Element {
 @export_multiline var flavor_text: String
 
 @export_group("Targeting")
-@export var target_type: TargetType
-@export var target_count: TargetCount 
+@export var target_type: TargetSelector.TargetType
+@export var target_count: TargetSelector.TargetCount 
+@export var can_target_self: bool 
+@export var can_target_party: bool
+@export var can_target_active: bool
+@export var can_target_inactive: bool
 
 @export_group("Usage")
 @export var battle_ready: bool
@@ -59,4 +51,6 @@ func get_description() -> String:
 	return flavor_text
 
 func can_use(in_combat: bool) -> bool:
-	return battle_ready and in_combat or overworld_ready and not in_combat
+	#var scenario: bool = battle_ready and in_combat or overworld_ready and not in_combat
+	var targets: bool = not CommonReference.combat.target_selector.get_possible_targets(self).is_empty()
+	return  targets

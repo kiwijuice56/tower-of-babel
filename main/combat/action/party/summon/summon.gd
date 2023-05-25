@@ -1,5 +1,5 @@
 class_name Summon
-extends Action
+extends Skill
 
 func commit() -> void:
 	pass

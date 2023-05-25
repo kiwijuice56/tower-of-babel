@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwrxmlx7alueh"]
+
+[ext_resource type="Script" path="res://main/combat/action/party/summon/summon.gd" id="1_bi0cl"]
+
+[node name="Check" type="Node"]
+script = ExtResource("1_bi0cl")
+cost_type = null
+cost = null
+display_name = "Check"
+element = 512
+flavor_text = "View the information about a party member."
+target_type = 1
+target_count = 1
+can_target_self = true
+can_target_party = true
+can_target_active = true
+can_target_inactive = true
+battle_ready = true
+overworld_ready = true

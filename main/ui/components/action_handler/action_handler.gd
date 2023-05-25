@@ -30,8 +30,10 @@ func _input(event: InputEvent) -> void:
 
 func initialize(fighters: Array[Fighter], category: String, initial_fighter: int, in_combat: bool) -> void:
 	self.fighters = fighters
-	can_swap = not in_combat
+	# Party skills are only for the player... no reason to show empty screens
+	can_swap = not in_combat and category in ["Tactic", "Skill"]
 	
+	%TitleLabel.text = category
 	%TabInfoContainer.visible = can_swap
 	
 	for handler in %TabContainer.get_children():

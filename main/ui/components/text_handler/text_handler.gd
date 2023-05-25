@@ -42,7 +42,7 @@ func _on_character_timeout() -> void:
 
 func display_text(text: String, speed: int, accepting_input: bool) -> void:
 	%Timer.stop()
-	self.seconds_per_character = 0.03 / speed
+	self.seconds_per_character = 0.02 / speed
 	speed_up_enabled = accepting_input
 	if accepting_input and is_instance_valid(CommonReference.ui):
 		CommonReference.ui.input_help.append_instructions({"left_shoulder" : "fast"})
@@ -67,12 +67,11 @@ func display_text(text: String, speed: int, accepting_input: bool) -> void:
 		%ContinueIcon.visible = false
 
 func clear() -> void:
+	%Timer.stop()
 	%Label.visible_characters = 0
 
 func transition_in() -> void:
-	%Timer.stop()
-	
-	%Label.visible_characters = 0
+	clear()
 	%Label.custom_minimum_size.y = INITIAL_HEIGHT
 	
 	visible = true
@@ -84,7 +83,7 @@ func transition_in() -> void:
 	completed.emit()
 
 func transition_out() -> void:
-	%Timer.stop()
+	clear()
 	
 	%Label.custom_minimum_size.y = FINAL_HEIGHT
 	

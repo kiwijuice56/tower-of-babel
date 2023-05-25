@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl6vipx0bsnkx"]
+
+[ext_resource type="Script" path="res://main/combat/action/party/summon/summon.gd" id="1_1ohwe"]
+
+[node name="Summon" type="Node"]
+script = ExtResource("1_1ohwe")
+display_name = "Summon"
+element = 512
+flavor_text = "Spawn a demon from your COMP into your active party."
+target_type = 1
+target_count = 1
+can_target_party = true
+can_target_inactive = true
+battle_ready = true
+overworld_ready = true
