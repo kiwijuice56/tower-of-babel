@@ -1,5 +1,6 @@
 class_name Fighter
 extends Sprite2D
+# A single character within a battle
 
 enum Age {
 	CHILD, ADULT, ELDER, ETERNAL,

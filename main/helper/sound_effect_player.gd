@@ -1,5 +1,7 @@
 class_name SoundEffectPlayer
 extends Node
+# Plays a sound effect with smooth volume transitions and with possibility to repeat
+# without interrupting other effects
 
 @export var stream: Resource
 @export var volume_db: float = 0.0
@@ -33,6 +35,8 @@ func stop_all() -> void:
 
 func gradual_play(audio: AudioStreamPlayer) -> void:
 	var target_volume: float = audio.volume_db
+	# -80 is the minimum volume, but -40 is almost inaudible and allows the transition
+	# to spend more time in an audible phase
 	audio.volume_db = -40.0
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(audio, "volume_db", target_volume, gradual_time)

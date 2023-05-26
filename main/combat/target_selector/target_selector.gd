@@ -1,5 +1,6 @@
 class_name TargetSelector
 extends Node
+# Handles the selection of targets in either enemy and player parties for action usage
 
 # Selecting NONE for either targeting option will skip the target selection process
 # during combat, but is rare and only needed for actions such as Pass

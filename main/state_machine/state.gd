@@ -1,5 +1,8 @@
 class_name State
 extends Node
+# The logic for a single phase of gameplay, including transitions to other states
+
+# See documentation for a full diagram of possible game states
 
 @onready var state_machine: StateMachine = get_parent()
 

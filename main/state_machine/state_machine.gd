@@ -1,5 +1,9 @@
 class_name StateMachine
 extends Node
+# Controls the flow of logic between different game states using a finite stack-based 
+# state machine
+
+# See documentation for a full diagram of possible game states
 
 @export var initial_state: State
 

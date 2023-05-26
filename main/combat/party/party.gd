@@ -1,5 +1,6 @@
 class_name Party
 extends Node
+# A collection of fighters on the same team within a battle
 
 func get_active_fighters() -> Array[Fighter]:
 	var active: Array[Fighter] = []

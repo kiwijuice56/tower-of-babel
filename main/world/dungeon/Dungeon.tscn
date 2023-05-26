@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://cw6oskm6ycvn2"]
 
 [ext_resource type="Script" path="res://main/world/dungeon/dungeon.gd" id="1_rs1gp"]
 [ext_resource type="MeshLibrary" uid="uid://bm64dw7u2l41x" path="res://main/world/dungeon/debug/debug_mesh_library.tres" id="2_eh115"]
@@ -6,9 +6,12 @@
 [node name="Dungeon" type="Node3D"]
 script = ExtResource("1_rs1gp")
 
+[node name="Encounters" type="Node" parent="."]
+
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_eh115")
 cell_size = Vector3(1, 1, 1)
 collision_mask = 2
+metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

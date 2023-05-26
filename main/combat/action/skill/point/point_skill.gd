@@ -1,5 +1,6 @@
 class_name PointSkill
 extends Skill
+# Base class for skills that change the health/stamina of a fighter
 
 @export_group("Stats")
 @export var power: int

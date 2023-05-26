@@ -1,5 +1,6 @@
 class_name Skill
 extends Action
+# Base class for learnable/fusible actions on a fighter
 
 @export_group("Cost")
 @export var cost_type: CostType

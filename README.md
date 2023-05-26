@@ -1,5 +1,5 @@
-# tower-of-babel
-The Tower of Babel is a work-in-progress Shin Megami Tensei fangame, created with Godot, Aseprite, and Blender.
+# Tower of Babel
+Tower of Babel is a work-in-progress Shin Megami Tensei fangame, created with Godot, Aseprite, and Blender.
 
 # Code Guidelines
 
@@ -8,13 +8,25 @@ The game is organized into distinct states, each with their own logic on control
 
 ![Diagram of the flow of game logic](docs/state_machine_flow.png "State Machine Flow Diagram")
 
-## User Interface Structure
-The UI code is organized into four interfaces as described below. Godot does not support actual interfaces, so instead interpret them as a general description of how scenes with the corresponding names act within the structure of the game.
+## Game Domains
+In order to make game state more managable, the node tree is split into tree distinct "roots" of different gameplay domains. These root nodes do not implement logic themselves and instead act as an interface to children nodes that handle the details of each domain. Some nodes exist outside of this trio, but only implement small and specific parts of the code.
+
+### User Interface (UI)
+Menus and displays of game state/data.
+
+### World
+2D and 3D dungeon gameplay.
+
+### Combat
+Battles and party state outside of combat.
+
+## UIStructure
+The UI code is organized into four "imaginary" interfaces as described below. Godot does not support actual interfaces, hence them being imaginary. However, these descriptions standardize the structure and function of all UI scenes in the game.
 
 ### Component
-Base interface for all UI scenes.
+Base interface for all UI scenes. It is not necessary for a component to contain any of these functions, but a component should adhere to the headers when implementing a method with similar functionality.
 
-- `signal completed`
+- `[for transition_in and transition_out] signal completed`
 - `func initialize(Variant data ...) -> void`
 - `func clear() -> void`
 - `[coroutine] func transition_in() -> void`
@@ -41,6 +53,3 @@ In general, the order of code structures should be:
 - virtual methods
 - signal methods
 - other methods
-
-## Notes
-The rules above are only guidelines. There may be some mistakes in the code or better approaches to certain problems. If you see any glaring issues, raise it on this repository. Thank you!
