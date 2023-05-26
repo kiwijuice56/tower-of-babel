@@ -2,34 +2,34 @@
 Tower of Babel is a work-in-progress Shin Megami Tensei fangame, created with Godot, Aseprite, and Blender.
 
 # Game Progress
-[X] Basic game architecture setup (state machine logic)
-[X] Basic combat and action system setup (skills, tactics, fighters, elements, status, etc.)
-[X] UI style and architecture setup
-[X] Basic text and input help displays
-[X] Basic dungeon navigation
-[X] Basic pause menu and transitions
-[X] Press turn UI 
-[X] Fighter status HUD
-[X] Action menus and usage validation (enough health/stamina, targets available)
-[ ] (IP) Encounter system and radar display
-[ ] (IP) Party management and matching UI
-[ ] (IP) UI polish and sound effects
-[ ] Items in action menus and game structure
-[ ] Transition to and from battle (excluding level-up screens for now)
-[ ] Basic battle flow and committing actions
-[ ] Basic attack animations
-[ ] Fighter status screen
-[ ] Fighter experience widgets
-[ ] Fighter level up and skill learning
-[ ] Save file implementation
-[ ] Terminal and SaveFile state
-[ ] Further dungeon navigation, such as NPC and item pickups 
-[ ] Cutscenes
-[ ] Demon dialogue trees, develop tactics
-[ ] Shop state
-[ ] Option state
-[ ] Demon fusion system
-[ ] Cathedral state and its UI
+- [X] Basic game architecture setup (state machine logic)
+- [X] Basic combat and action system setup (skills, tactics, fighters, elements, status, etc.)
+- [X] UI style and architecture setup
+- [X] Basic text and input help displays
+- [X] Basic dungeon navigation
+- [X] Basic pause menu and transitions
+- [X] Press turn UI 
+- [X] Fighter status HUD
+- [X] Action menus and usage validation (enough health/stamina, targets available)
+- [ ] (IP) Encounter system and radar display
+- [ ] (IP) Party management and matching UI
+- [ ] (IP) UI polish and sound effects
+- [ ] Items in action menus and game structure
+- [ ] Transition to and from battle (excluding level-up screens for now)
+- [ ] Basic battle flow and committing actions
+- [ ] Basic attack animations
+- [ ] Fighter status screen
+- [ ] Fighter experience widgets
+- [ ] Fighter level up and skill learning
+- [ ] Save file implementation
+- [ ] Terminal and SaveFile state
+- [ ] Further dungeon navigation, such as NPC and item pickups 
+- [ ] Cutscenes
+- [ ] Demon dialogue trees, develop tactics
+- [ ] Shop state
+- [ ] Option state
+- [ ] Demon fusion system
+- [ ] Cathedral state and its UI
 
 
 # Code Documentation
